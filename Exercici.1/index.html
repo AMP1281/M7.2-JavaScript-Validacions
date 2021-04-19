@@ -64,7 +64,7 @@
                     </li>
                 </ul>
                 <!--Formulari de cerca-->
-                <form class="d-flex order-2 order-lg-4">
+                <form class="d-flex order-2 order-lg-4" id="formcerca">
                     <input class="form-control me-2 mr-1" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-secondary mr-3" type="submit"><i class="fas fa-search"></i></button>
                 </form>
@@ -85,54 +85,118 @@
                                 <div class="modal-body">
                                     <!--Form-->
                                     <div class="row">
+
                                         <div class="col-lg-6">
+
                                             <h1 class="d-flex justify-content-center">Inicia Sessió</h1>
+
                                                 <form action="proceso.php" method="POST" class="needs-validation mt-4">
-                                                    <div class="form-group"><input type="email" id="emailuno"class="form-control" placeholder="Email" required> 
-                                                        <div class="valid-feedback">Vàlid.</div><div class="invalid-feedback">Aquest camp és obligatori.</div>
-                                                    </div>
-                                                    <div class="form-group"><input type="password" id="contrasenyauno"class="form-control" placeholder="Contrasenya" required>
-                                                        <div class="valid-feedback">Vàlid.</div><div class="invalid-feedback">Aquest camp és obligatori.</div>
-                                                    </div>
 
-                                                    <div class="form-group d-flex justify-content-center"><input type="submit" value="Enviar"class="btn btn-primary btn-block mt-2"></div>
-
-                                                    <div class="form-group"><div class="text-primary mt-n3"><a href="#" class="streched-link small">¿Heu oblidat la contrasenya?</a></div>
+                                                    <div class="form-group">
+                                                        <input type="email" id="emailuno"class="form-control" placeholder="Email" required> 
+                                                            <div class="valid-feedback">Vàlid.</div>
+                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
                                                     </div>
 
-                                                    </form>
+                                                    <div class="form-group">
+                                                        <input type="password" id="contrasenyauno"class="form-control" placeholder="Contrasenya" required>
+                                                            <div class="valid-feedback">Vàlid.</div>
+                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
+                                                    </div>
+
+                                                    <div class="form-group d-flex justify-content-center">
+                                                        <input type="submit" value="Enviar"class="btn btn-primary btn-block mt-2">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="text-primary mt-n3">
+                                                            <a href="#" class="streched-link small">¿Heu oblidat la contrasenya?</a>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
                                         </div>
+
                                         <div class="col-lg-6">
+
                                             <h1 class="d-flex justify-content-center">Crea un compte</h1>
-                                                <form action="proceso.php" method="POST" class="needs-validation mt-4">
-                                                    <div class="form-group"><input type="text" id="nom" class="form-control" placeholder="Nom" required>
-                                                        <div class="valid-feedback">Vàlid.</div><div class="invalid-feedback">Aquest camp és obligatori.</div>
+
+                                                <form action="proceso.php" method="POST" class="needs-validation mt-4" id="formulario">
+                                                    
+                                                    <!--Grup Nom-->
+                                                    <div class="form-group" id="grup__nom">
+                                                        <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom" required>
+                                                            <div class="valid-feedback">Vàlid.</div>
+                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
+                                                       
                                                     </div>
-                                                    <div class="form-group"><input type="text" id="cognoms"class="form-control" placeholder="Cognoms" required>
-                                                        <div class="valid-feedback">Vàlid.</div><div class="invalid-feedback">Aquest camp és obligatori.</div>
+
+                                                    <!--Grup Cognom-->
+                                                    <div class="form-group" id="grup__cognom">
+                                                        <input type="text" name="cognoms" id="cognoms"class="form-control" placeholder="Cognoms" required>
+                                                            <div class="valid-feedback">Vàlid.</div>
+                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
+                                                        
                                                     </div>
-                                                    <div class="form-group"><input type="email" id="emaildos"class="form-control" placeholder="Email" required>
-                                                        <div class="valid-feedback">Vàlid.</div><div class="invalid-feedback">Aquest camp és obligatori.</div>
+
+                                                    <!--Grup email-->
+                                                    <div class="form-group" id="grup__email">
+                                                        <input type="email" nom="emaildos" id="emaildos"class="form-control" placeholder="Email" required>
+                                                            <div class="valid-feedback">Vàlid.</div>
+                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
+                                                        
                                                     </div>
-                                                    <div class="form-group"><input type="password" id="contrasenyados"class="form-control" placeholder="Contrasenya" required>
-                                                        <div class="valid-feedback">Vàlid.</div><div class="invalid-feedback">Aquest camp és obligatori.</div>
+
+                                                    <!--Grup Password-->
+                                                    <div class="form-group" id="grup__password">
+                                                        <input type="password" nom="contrasenyados" id="contrasenyados"class="form-control" placeholder="Contrasenya" required>
+                                                            <div class="valid-feedback">Vàlid.</div>
+                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
+                                                        
                                                     </div>
-                                                    <div class="form-group"><input type="password" id="confirmcontra"class="form-control" placeholder="Confirma la contrasenya" required>
-                                                        <div class="valid-feedback">Vàlid.</div><div class="invalid-feedback">Aquest camp és obligatori.</div>
+
+                                                    <!--Grup Password2-->
+                                                    <div class="form-group" id="grup__password2">
+                                                        <input type="password" nom="confirmcontra" id="confirmcontra"class="form-control" placeholder="Confirma la contrasenya" required>
+                                                            <div class="valid-feedback">Vàlid.</div>
+                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
+                                                        
                                                     </div>
-                                                    <div class="form-group form-check">
+
+                                                    <!--Grup Legal-->
+                                                    <div class="form-group form-check" id="grup__legal">
                                                         <label for="legal" class="form-check-label mb-n3">
-                                                            <input type="checkbox" class="form-check-input" required><p class="small text-muted">Al crear un compte, acceptes els <a href="#" class="text-muted font-weight-bold">Termes i Condicions</a> i la <a href="#"class="text-muted font-weight-bold">Política de Privadesa</a>, incloent la <a href="#"class="text-muted font-weight-bold">Política de Cookies</a>.</p>
-                                                            <div class="valid-feedback">Vàlid.</div><div class="invalid-feedback">Aquest camp és obligatori.</div>
+
+                                                            <input type="checkbox" nom="legal" id="legal" class="form-check-input" required>
+
+                                                                <p class="small text-muted">Al crear un compte, acceptes els <a href="#" class="text-muted font-weight-bold">Termes i Condicions</a> i la <a href="#"class="text-muted font-weight-bold">Política de Privadesa</a>, incloent la <a href="#"class="text-muted font-weight-bold">Política de Cookies</a>.</p>
+
+                                                            <div class="valid-feedback">Vàlid.</div>
+                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
+
                                                         </label>
                                                     </div>
-                                                    <div class="form-group form-check">
+
+                                                    <!--Grup Marketing-->
+                                                    <div class="form-group form-check" id="grup__marketing">
+
                                                         <label for="legal" class="form-check-label mt-n2">
-                                                            <input type="checkbox" class="form-check-input" required><p class="small text-muted">Vull rebre promocions exclusives, descomptes i novetats per e.mail.</p>
-                                                            <div class="valid-feedback">Vàlid.</div><div class="invalid-feedback">Aquest camp és obligatori.</div> 
+
+                                                            <input type="checkbox" nom="marketing" id="marketing" class="form-check-input" required>
+                                                            
+                                                            <p class="small text-muted">Vull rebre promocions exclusives, descomptes i novetats per e.mail.</p>
+
+                                                            <div class="valid-feedback">Vàlid.</div>
+                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div> 
+
                                                         </label>
+
                                                     </div>
-                                                    <div class="form-group d-flex justify-content-center"><input type="submit" value="Enviar"class="btn btn-primary btn-block mt-n2"></div>
+
+                                                    <div class="form-group d-flex justify-content-center">
+                                                        <input type="submit" value="Enviar"class="btn btn-primary btn-block mt-n2">
+                                                    </div>
+
                                                 </form>
                                         </div>
                                     </div>
