@@ -100,7 +100,7 @@
 
                                             <h1 class="d-flex justify-content-center">Inicia Sessió</h1>
 
-                                                <form id="formulario2"action="proceso.php" method="POST" class="needs-validation mt-4">
+                                                <form id="formulario2" action="proceso.php" method="POST" class="needs-validation mt-4">
 
                                                     <div class="form-group">
                                                         <input type="email" id="emailuno"class="form-control" placeholder="Email" required> 
@@ -131,22 +131,24 @@
 
                                             <h1 class="d-flex justify-content-center">Crea un compte</h1>
 
-                                                <form id="fomulario3" class="needs-validation mt-4">
+                                                <form id="formulario3" action="proceso.php" method="POST" class="needs-validation mt-4">
                                                     
                                                     <!--Grup Nom-->
                                                     <div class="form-group" id="grup__nom">
-                                                        <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom" required>
-                                                            <div class="valid-feedback">Vàlid.</div>
-                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
-                                                       
+                                                        <div class="formulario__grupo-input">
+                                                            <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom" required>
+                                                                <div class="valid-feedback">Vàlid.</div>
+                                                                <div class="invalid-feedback">Aquest camp és obligatori.</div>
+                                                        </div>
                                                     </div>
 
                                                     <!--Grup Cognom-->
                                                     <div class="form-group" id="grup__cognom">
-                                                        <input type="text" name="cognoms" id="cognoms"class="form-control" placeholder="Cognoms" required>
-                                                            <div class="valid-feedback">Vàlid.</div>
-                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
-                                                        
+                                                        <div class="formulario__grupo-input">
+                                                            <input type="text" name="cognoms" id="cognoms"class="form-control" placeholder="Cognoms" required>
+                                                                <div class="valid-feedback">Vàlid.</div>
+                                                                <div class="invalid-feedback">Aquest camp és obligatori.</div>
+                                                        </div>
                                                     </div>
 
                                                     <!--Grup email-->
