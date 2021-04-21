@@ -38,6 +38,7 @@
             <!--Navbar links and dropdown-->
             <div class="order-3 collapse navbar-collapse" id="dentrotoggler">
                 <ul class="navbar-nav mr-auto">
+
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown" id="navbardrop">Productes</a>
                             <div class="dropdown-menu">
@@ -46,6 +47,7 @@
                                 <a href="#" class="dropdown-item">Festivitats</a>
                             </div>
                     </li>
+
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown" id="navbardrop">Ofertes</a>
                             <div class="dropdown-menu">
@@ -54,6 +56,7 @@
                                 <a href="#" class="dropdown-item">Berenars</a>
                             </div>
                     </li>
+
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown" id="navbardrop">Blog</a>
                             <div class="dropdown-menu">
@@ -61,21 +64,26 @@
                                 <a href="#" class="dropdown-item">Consells</a>
                             </div>
                     </li>
+
                 </ul>
 
 
 
 
-                <!--Formulari de cerca-->
+                <!--FORMULARI de CERCA-->
+                <form id="cerca" onsubmit="validacioCerca()"class="d-flex order-2 order-lg-4">
 
-                <form id="formulario1" class="d-flex order-2 order-lg-4">
+                        <input name="buscador" id="buscador" class="form-control me-2 mr-1" type="search" placeholder="Search" aria-label="Search">
 
-                    <input name="cerca" id="cerca" class="form-control me-2 mr-1" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-secondary mr-3" type="submit"><i class="fas fa-search"></i></button>
-                    
+                        <button class="btn btn-outline-secondary mr-3" type="submit"><i class="fas fa-search"></i></button>
+
                 </form>
-            </div>
+                <!--Fi formulari CERCA-->
 
+
+
+
+            </div>
 
 
 
@@ -96,22 +104,20 @@
                                     <!--Form-->
                                     <div class="row">
 
+
+                                        <!-- FORMULARI LOGIN-->
                                         <div class="col-lg-6">
 
                                             <h1 class="d-flex justify-content-center">Inicia Sessió</h1>
 
-                                                <form id="formulario2" action="proceso.php" method="POST" class="needs-validation mt-4">
+                                                <form id="login" action="proceso.php" method="POST" class="mt-4">
 
                                                     <div class="form-group">
-                                                        <input type="email" id="emailuno"class="form-control" placeholder="Email" required> 
-                                                            <div class="valid-feedback">Vàlid.</div>
-                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
+                                                        <input type="email" id="emailuno"class="form-control" placeholder="Email"> 
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <input type="password" id="contrasenyauno"class="form-control" placeholder="Contrasenya" required>
-                                                            <div class="valid-feedback">Vàlid.</div>
-                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
+                                                        <input type="password" id="contrasenyauno"class="form-control" placeholder="Contrasenya">
                                                     </div>
 
                                                     <div class="form-group d-flex justify-content-center">
@@ -126,66 +132,57 @@
 
                                                 </form>
                                         </div>
+                                        <!--END INICIA SESSIO-->
 
+
+
+                                        <!--FORMULARI REGISTRE-->
                                         <div class="col-lg-6">
 
                                             <h1 class="d-flex justify-content-center">Crea un compte</h1>
 
-                                                <form id="formulario3" action="proceso.php" method="POST" class="needs-validation mt-4">
+                                                <form id="registre" onsubmit="validacioRegistre()"class="mt-4">
                                                     
                                                     <!--Grup Nom-->
                                                     <div class="form-group" id="grup__nom">
-                                                        <div class="formulario__grupo-input">
-                                                            <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom" required>
-                                                                <div class="valid-feedback">Vàlid.</div>
-                                                                <div class="invalid-feedback">Aquest camp és obligatori.</div>
-                                                        </div>
+                                                            <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom">
+                                                            <div class="invalid-feedback" id="errorNom"></div>
                                                     </div>
 
-                                                    <!--Grup Cognom-->
-                                                    <div class="form-group" id="grup__cognom">
-                                                        <div class="formulario__grupo-input">
-                                                            <input type="text" name="cognoms" id="cognoms"class="form-control" placeholder="Cognoms" required>
-                                                                <div class="valid-feedback">Vàlid.</div>
-                                                                <div class="invalid-feedback">Aquest camp és obligatori.</div>
-                                                        </div>
+                                                    <!--Grup Cognoms-->
+                                                    <div class="form-group" id="grup__cognoms">
+                                                            <input type="text" name="cognoms" id="cognoms"class="form-control" placeholder="Cognoms">
+                                                            <div class="invalid-feedback" id="errorCognoms"></div>
                                                     </div>
 
                                                     <!--Grup email-->
                                                     <div class="form-group" id="grup__email">
-                                                        <input type="email" nom="emaildos" id="emaildos"class="form-control" placeholder="Email" required>
-                                                            <div class="valid-feedback">Vàlid.</div>
-                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
-                                                        
+                                                        <input type="email" nom="emaildos" id="emaildos"class="form-control" placeholder="Email">
+                                                        <div class="invalid-feedback" id="errorEmaildos"></div>
                                                     </div>
 
                                                     <!--Grup Password-->
                                                     <div class="form-group" id="grup__password">
-                                                        <input type="password" nom="contrasenyados" id="contrasenyados"class="form-control" placeholder="Contrasenya" required>
-                                                            <div class="valid-feedback">Vàlid.</div>
-                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
-                                                        
+                                                        <input type="password" nom="contrasenyados" id="contrasenyados"class="form-control" placeholder="Contrasenya">
+                                                        <div class="invalid-feedback" id="errorContrasenyados"></div>
                                                     </div>
 
                                                     <!--Grup Password2-->
                                                     <div class="form-group" id="grup__password2">
-                                                        <input type="password" nom="confirmcontra" id="confirmcontra"class="form-control" placeholder="Confirma la contrasenya" required>
-                                                            <div class="valid-feedback">Vàlid.</div>
-                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
-                                                        
+                                                        <input type="password" nom="confirmcontra" id="confirmcontra"class="form-control" placeholder="Confirma la contrasenya">
+                                                        <div class="invalid-feedback" id="errorConfirmcontra"></div>
                                                     </div>
 
                                                     <!--Grup Legal-->
                                                     <div class="form-group form-check" id="grup__legal">
+
                                                         <label for="legal" class="form-check-label mb-n3">
 
-                                                            <input type="checkbox" nom="legal" id="legal" class="form-check-input" required>
+                                                            <input type="checkbox" nom="legal" id="legal" class="form-check-input">
 
                                                                 <p class="small text-muted">Al crear un compte, acceptes els <a href="#" class="text-muted font-weight-bold">Termes i Condicions</a> i la <a href="#"class="text-muted font-weight-bold">Política de Privadesa</a>, incloent la <a href="#"class="text-muted font-weight-bold">Política de Cookies</a>.</p>
 
-                                                            <div class="valid-feedback">Vàlid.</div>
-                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div>
-
+                                                                <div class="invalid-feedback" id="errorLegal"></div>
                                                         </label>
                                                     </div>
 
@@ -194,23 +191,27 @@
 
                                                         <label for="legal" class="form-check-label mt-n2">
 
-                                                            <input type="checkbox" nom="marketing" id="marketing" class="form-check-input" required>
+                                                            <input type="checkbox" nom="marketing" id="marketing" class="form-check-input">
                                                             
                                                             <p class="small text-muted">Vull rebre promocions exclusives, descomptes i novetats per e.mail.</p>
 
-                                                            <div class="valid-feedback">Vàlid.</div>
-                                                            <div class="invalid-feedback">Aquest camp és obligatori.</div> 
+                                                            <div class="invalid-feedback" id="errorMarketing"></div>
 
                                                         </label>
 
                                                     </div>
 
+                                                    <!--Botn enviar-->
                                                     <div class="form-group d-flex justify-content-center">
                                                         <input type="submit" value="Enviar"class="btn btn-primary btn-block mt-n2">
                                                     </div>
 
+
                                                 </form>
                                         </div>
+                                    
+                                        <!-- END FORMULARI CREAR COMPTE-->
+
                                     </div>
                                 </div>
                             </div>
@@ -244,7 +245,7 @@
             </div>
      <!--Card-deck End-->
 
-     <!--Carousel Begin
+     <!--Carousel Begin-->
             <div class="jumbotron flex-column d-flex justify-content-center mt-5">
                 <h3 class="text-center mb-5 font-weight-bold"> ¡AIXO T'INTERESSA!</h3>
 
@@ -279,7 +280,7 @@
                     </div>
                 </div>
             </div>
-     Carousel End-->
+     <!--Carousel End-->
 
      <!--Section Begin-->
             <div class="jumbotron flex-column d-flex justify-content-center mt-5">

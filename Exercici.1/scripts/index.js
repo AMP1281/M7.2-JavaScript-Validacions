@@ -1,39 +1,67 @@
+//Validar formulari cerca
+
+var cercaForm = cerca;
+
+var inputbuscador = cercaForm.elements.buscador;
+
+    function validacioCerca() {
+
+        if (inputbuscador.value == 0) {
+            inputbuscador.classList.add("is-invalid");
+            return false;
+        }
+    }
+
 
 //Validar formulari registre
 
 var registreForm = registre;
 
-var inputnom = registreForm.elements.nom;
-var inputcognoms = registreForm.elements.cognoms;
-var inputemaildos = registreForm.elements.emaildos;
-var inputcontrasenyados = registreForm.elements.contrasenyados;
-var inputconfirmcontra = registreForm.elements.confirmcontra;
-var inputlegal = registreForm.elements.legal;
-var inputmarketing = registreForm.elements.marketing;
+var nom = nom.value;
+var cognoms = cognoms.value;
+var emaildos = emaildos.value;
+var contrasenyados = contrasenyados.value;
+var confirmcontra = confirmcontra.value;
+var legal = legal.value;
+var marketing = marketing.value;
 
 function validacioRegistre() {
 
 	var count = 0;
 
-    if (inputnom.value == 0) {
+    if (inputnom === "")  {
+
         inputnom.classList.add("is-invalid");
-        errornom.textContent = "Aquest camp es obligatori";
-		acumErrores ++;
+        errorNom.textContent = "Aquest camp es obligatori";
     }
+    if (inputcognoms === "");{
 
-    if (inputcognoms.value == 0) {
         inputcognoms.classList.add("is-invalid");
-        errornom.textContent = "Aquest camp es obligatori";
-		acumErrores ++;
+        errorCognoms.textContent = "Aquest camp es obligatori";
+    }
+    if (inputemaildos === "");{
+
+        inputemaildos.classList.add("is-invalid");
+        errorEmaildos.textContent = "Aquest camp es obligatori";
+    }
+    if (inputcontrasenyados === "");{
+
+        inputcontrasenyados.classList.add("is-invalid");
+        errorContrasenyados.textContent = "Aquest camp es obligatori";
+    }
+    if (inputconfirmcontra === "");{
+
+        inputconfirmcontra.classList.add("is-invalid");
+        errorConfirmcontra.textContent = "Aquest camp es obligatori";
+    }
+
+		count ++;
     }
 
 
-    if (count > 0){
-        return false;
-    }else{
-		return true;
-	}
-}
 
 
 
+
+
+error.textContent = "Aquest camp es obligatori";
