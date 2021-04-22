@@ -49,37 +49,40 @@ function validacioRegistre() {
         count ++;
     }
 
-    if (inputProvincia) {
+    // if (inputProvincia) {
 
-        inputUsuari.classList.add("is-invalid");
-        errorUsuari.textContent = "El nom d'usuari ha de contenir més de tres caracters";
-    }
+    //     inputUsuari.classList.add("is-invalid");
+    //     errorUsuari.textContent = "El nom d'usuari ha de contenir més de tres caracters";
+    //     count ++;
+    // }
 
 
-    if (inputEmaildos.value == "") {
+    // if (inputEmaildos.value == "") {
 
-        inputEmaildos.classList.add("is-invalid");
-        errorEmaildos.textContent = "Aquest camp es obligatori";
-    }
+    //     inputEmaildos.classList.add("is-invalid");
+    //     errorEmaildos.textContent = "Aquest camp es obligatori";
+    //     count ++;
+    // }
 
-    if (inputContrasenyados.value == "") {
+    // if (inputContrasenyados.value == "") {
 
-        inputContrasenyados.classList.add("is-invalid");
-        errorContrasenyados.textContent = "Aquest camp es obligatori";
-    }
+    //     inputContrasenyados.classList.add("is-invalid");
+    //     errorContrasenyados.textContent = "Aquest camp es obligatori";
+    //     count ++;
+    // }
 
-    if (inputConfirmcontra.value == "") {
+    // if (inputConfirmcontra.value == "") {
 
-        inputConfirmcontra.classList.add("is-invalid");
-        errorConfirmcontra.textContent = "Aquest camp es obligatori";
-    }
+    //     inputConfirmcontra.classList.add("is-invalid");
+    //     errorConfirmcontra.textContent = "Aquest camp es obligatori";
+    //     count ++;
+    // }
 
-    if(!inputLegal.checked) {
-		inputLegal.classList.add("is-invalid");
-		errorLegal.textContent = "Aquest camp es obligatori";
-	}
-
-		count ++;
+    // if(!inputLegal.checked) {
+	// 	inputLegal.classList.add("is-invalid");
+	// 	errorLegal.textContent = "Aquest camp es obligatori";
+    //     count ++;
+	// }
 
         if (count > 0){
             return false;
