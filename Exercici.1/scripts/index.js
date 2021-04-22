@@ -2,13 +2,27 @@
 
 var cercaForm = cerca;
 
-var inputbuscador = cercaForm.elements.buscador;
-
     function validacioCerca() {
 
-        if (inputbuscador.value == 0) {
-            inputbuscador.classList.add("is-invalid");
+        var inputbuscador = cercaForm.elements.buscador;
+
+        var count = 0;
+
+        if (inputbuscador.value == "") {
+            inputbuscador.classList.add ("is-invalid");
+            errorBuscador.textContent = "Es obligatori introduir una paraula per iniciar la busqueda";
+            count ++;
+        }
+       if (inputbuscador.value.length == 1 || inputbuscador.value.length == 2 || inputbuscador.value.length == 3) {
+            inputbuscador.classList.add ("is-invalid");
+            errorBuscador.textContent = "La paraula ha de contenir més de 3 caràcters";
+            count ++;
+        }
+        if (count > 0){
             return false;
+        }
+        else {
+            return true;
         }
     }
 
@@ -17,51 +31,65 @@ var inputbuscador = cercaForm.elements.buscador;
 
 var registreForm = registre;
 
-var nom = nom.value;
-var cognoms = cognoms.value;
-var emaildos = emaildos.value;
-var contrasenyados = contrasenyados.value;
-var confirmcontra = confirmcontra.value;
-var legal = legal.value;
-var marketing = marketing.value;
-
 function validacioRegistre() {
+
+    var inputUsuari = registreForm.elements.usuari;
+    var inputProvincia = registreForm.elements.provincia;
+    var inputEmaildos = registreForm.elements.emaildos;
+    var inputContrasenyados = registreForm.elements.contrasenyados;
+    var inputConfirmcontra = registreForm.elements.confirmcontra;
+    var inputLegal = registreForm.elements.legal;
+    var inputMarketing = registreForm.elements.marketing;
 
 	var count = 0;
 
-    if (inputnom === "")  {
-
-        inputnom.classList.add("is-invalid");
-        errorNom.textContent = "Aquest camp es obligatori";
+    if (inputUsuari.value == "") {
+        inputUsuari.classList.add ("is-invalid");
+        errorUsuari.textContent = "Es obligatori introduir una paraula per iniciar la busqueda";
+        count ++;
     }
-    if (inputcognoms === "");{
 
-        inputcognoms.classList.add("is-invalid");
-        errorCognoms.textContent = "Aquest camp es obligatori";
+    if (inputProvincia) {
+
+        inputUsuari.classList.add("is-invalid");
+        errorUsuari.textContent = "El nom d'usuari ha de contenir més de tres caracters";
     }
-    if (inputemaildos === "");{
 
-        inputemaildos.classList.add("is-invalid");
+
+    if (inputEmaildos.value == "") {
+
+        inputEmaildos.classList.add("is-invalid");
         errorEmaildos.textContent = "Aquest camp es obligatori";
     }
-    if (inputcontrasenyados === "");{
 
-        inputcontrasenyados.classList.add("is-invalid");
+    if (inputContrasenyados.value == "") {
+
+        inputContrasenyados.classList.add("is-invalid");
         errorContrasenyados.textContent = "Aquest camp es obligatori";
     }
-    if (inputconfirmcontra === "");{
 
-        inputconfirmcontra.classList.add("is-invalid");
+    if (inputConfirmcontra.value == "") {
+
+        inputConfirmcontra.classList.add("is-invalid");
         errorConfirmcontra.textContent = "Aquest camp es obligatori";
     }
 
+    if(!inputLegal.checked) {
+		inputLegal.classList.add("is-invalid");
+		errorLegal.textContent = "Aquest camp es obligatori";
+	}
+
 		count ++;
-    }
+
+        if (count > 0){
+            return false;
+        }
+        else {
+            return true;
+        }
+}
 
 
 
 
 
-
-
-error.textContent = "Aquest camp es obligatori";

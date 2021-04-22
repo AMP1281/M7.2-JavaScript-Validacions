@@ -71,14 +71,15 @@
 
 
                 <!--FORMULARI de CERCA-->
-                <form id="cerca" onsubmit="validacioCerca()"class="d-flex order-2 order-lg-4">
+                <form id="cerca" onsubmit="return validacioCerca()"class="d-flex order-2 order-lg-4">
 
                         <input name="buscador" id="buscador" class="form-control me-2 mr-1" type="search" placeholder="Search" aria-label="Search">
+                        <div class="invalid-feedback" id="errorBuscador"></div>
 
                         <button class="btn btn-outline-secondary mr-3" type="submit"><i class="fas fa-search"></i></button>
 
                 </form>
-                <!--Fi formulari CERCA-->
+                <!--FI formulari CERCA-->
 
 
 
@@ -141,18 +142,24 @@
 
                                             <h1 class="d-flex justify-content-center">Crea un compte</h1>
 
-                                                <form id="registre" onsubmit="validacioRegistre()"class="mt-4">
+                                                <form id="registre" onsubmit="return validacioRegistre()"class="mt-4">
                                                     
-                                                    <!--Grup Nom-->
-                                                    <div class="form-group" id="grup__nom">
-                                                            <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom">
-                                                            <div class="invalid-feedback" id="errorNom"></div>
+                                                    <!--Grup Usuari-->
+                                                    <div class="form-group has-validation" id="grup__usuari">
+                                                            <input type="text" name="usuari" id="usuari" class="form-control" placeholder="Usuari">
+                                                            <div class="invalid-feedback" id="errorUsuari"></div>
                                                     </div>
 
-                                                    <!--Grup Cognoms-->
-                                                    <div class="form-group" id="grup__cognoms">
-                                                            <input type="text" name="cognoms" id="cognoms"class="form-control" placeholder="Cognoms">
-                                                            <div class="invalid-feedback" id="errorCognoms"></div>
+                                                    <!--Grup provincia-->
+                                                    <div class="form-group" id="grup__provincia">
+                                                        <select class="custom-select" nom="provincia" id="provincia">
+                                                            <option selected>Selecciona la teva provincia</option>
+                                                            <option value="1">Barcelona</option>
+                                                            <option value="2">Tarragona</option>
+                                                            <option value="3">Lleida</option>
+                                                            <option value="4">Girona</option>
+                                                        </select>
+                                                        <div class="invalid-feedback" id="errorEmaildos"></div>
                                                     </div>
 
                                                     <!--Grup email-->
