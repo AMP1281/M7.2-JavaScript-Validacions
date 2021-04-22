@@ -1,3 +1,4 @@
+
 //Validar formulari cerca
 
 var cercaForm = cerca;
@@ -41,48 +42,62 @@ function validacioRegistre() {
     var inputLegal = registreForm.elements.legal;
     var inputMarketing = registreForm.elements.marketing;
 
+    var RegExpemail = /^[a-zA-Z 0-9.ñ!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9ñ-]+(?:\.[a-zA-Z0-9-]+)*$/; 
+
 	var count = 0;
 
-    if (inputUsuari.value == "") {
+    if (inputUsuari.value.length < 3 || inputUsuari.value.length > 10) {
         inputUsuari.classList.add ("is-invalid");
-        errorUsuari.textContent = "Es obligatori introduir una paraula per iniciar la busqueda";
+        errorUsuari.textContent = "Es seu nom d'usuari ha de contenir entre 3 i 10 caràcters";
         count ++;
+    } else{
+        inputUsuari.classList.add("is-valid");
     }
 
-    // if (inputProvincia) {
+    if (inputProvincia.selectedIndex == 0){
 
-    //     inputUsuari.classList.add("is-invalid");
-    //     errorUsuari.textContent = "El nom d'usuari ha de contenir més de tres caracters";
-    //     count ++;
-    // }
+        inputProvincia.classList.add( "is-invalid");
+        errorProvincia.textContent = "Es obligatori seleccionar la seva provincia";
+        count ++;
+    } else{
+        inputProvincia.classList.add("is-valid");
+    }
 
+    if (RegExpemail.test(inputEmaildos)) {
 
-    // if (inputEmaildos.value == "") {
+        inputEmaildos.classList.add("is-invalid");
+        errorEmaildos.textContent = "Introdueix una direcció de correu electrónic vàlida";
+        count ++;
 
-    //     inputEmaildos.classList.add("is-invalid");
-    //     errorEmaildos.textContent = "Aquest camp es obligatori";
-    //     count ++;
-    // }
+    } else{
+        inputEmaildos.classList.add("is-valid");
+    }
 
-    // if (inputContrasenyados.value == "") {
+    if (inputContrasenyados.value == "") {
 
-    //     inputContrasenyados.classList.add("is-invalid");
-    //     errorContrasenyados.textContent = "Aquest camp es obligatori";
-    //     count ++;
-    // }
+        inputContrasenyados.classList.add ("is-invalid");
+        errorContrasenyados.textContent = "Aquest camp es obligatori";
+        count ++;
+    } else{
+        inputContrasenyados.classList.add("is-valid");
+    }
 
-    // if (inputConfirmcontra.value == "") {
+    if (inputConfirmcontra.value == "") {
 
-    //     inputConfirmcontra.classList.add("is-invalid");
-    //     errorConfirmcontra.textContent = "Aquest camp es obligatori";
-    //     count ++;
-    // }
+        inputConfirmcontra.classList.add("is-invalid");
+        errorConfirmcontra.textContent = "Aquest camp es obligatori";
+        count ++;
+    } else{
+        inputConfirmcontra.classList.add("is-valid");
+    }
 
-    // if(!inputLegal.checked) {
-	// 	inputLegal.classList.add("is-invalid");
-	// 	errorLegal.textContent = "Aquest camp es obligatori";
-    //     count ++;
-	// }
+    if(!inputLegal.checked) {
+		inputLegal.classList.add("is-invalid");
+		errorLegal.textContent = "Aquest camp es obligatori";
+        count ++;
+	} else{
+        inputLegal.classList.add("is-valid");
+    }
 
         if (count > 0){
             return false;
