@@ -42,10 +42,11 @@ function validacioRegistre() {
     var inputLegal = registreForm.elements.legal;
     var inputMarketing = registreForm.elements.marketing;
 
-    var RegExpemail = /^[a-zA-Z 0-9.ñ!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9ñ-]+(?:\.[a-zA-Z0-9-]+)*$/; 
+    var regExpemail = /[\w._-]+@[\wñ._-]+(?:\.[\w]+)+/; 
 
 	var count = 0;
 
+    //Usuari
     if (inputUsuari.value.length < 3 || inputUsuari.value.length > 10) {
         inputUsuari.classList.add ("is-invalid");
         errorUsuari.textContent = "Es seu nom d'usuari ha de contenir entre 3 i 10 caràcters";
@@ -53,7 +54,7 @@ function validacioRegistre() {
     } else{
         inputUsuari.classList.add("is-valid");
     }
-
+    //Provincia
     if (inputProvincia.selectedIndex == 0){
 
         inputProvincia.classList.add( "is-invalid");
@@ -62,8 +63,8 @@ function validacioRegistre() {
     } else{
         inputProvincia.classList.add("is-valid");
     }
-
-    if (RegExpemail.test(inputEmaildos)) {
+    //Email
+    if (!regExpemail.test(inputEmaildos.value)) {
 
         inputEmaildos.classList.add("is-invalid");
         errorEmaildos.textContent = "Introdueix una direcció de correu electrónic vàlida";
@@ -73,16 +74,28 @@ function validacioRegistre() {
         inputEmaildos.classList.add("is-valid");
     }
 
-    if (inputContrasenyados.value == "") {
-
+    //Contraseña
+    if (!/[A-Z]/.test(inputContrasenyados.value)) {
         inputContrasenyados.classList.add ("is-invalid");
-        errorContrasenyados.textContent = "Aquest camp es obligatori";
+        errorContrasenyados.textContent = "La contrasenya ha de contenir una majúscula";
         count ++;
-    } else{
+    } 
+    else if (!/[0-9]/.test(inputContrasenyados.value)){
+        inputContrasenyados.classList.add ("is-invalid");
+        errorContrasenyados.textContent = "La contrasenya ha de contenir una majúscula";
+        count ++;
+    }
+    else if(inputContrasenyados.value.length < 8){}
+        inputContrasenyados.classList.add ("is-invalid");
+        errorContrasenyados.textContent = "La contrasenya ha de contenir una majúscula";
+        count ++;
+    }
+    else{
         inputContrasenyados.classList.add("is-valid");
     }
 
-    if (inputConfirmcontra.value == "") {
+    //Confirm contraseña
+    if (inputConfirmcontra.value != inputContrasenyados.value) {
 
         inputConfirmcontra.classList.add("is-invalid");
         errorConfirmcontra.textContent = "Aquest camp es obligatori";
@@ -90,7 +103,7 @@ function validacioRegistre() {
     } else{
         inputConfirmcontra.classList.add("is-valid");
     }
-
+    //Legal
     if(!inputLegal.checked) {
 		inputLegal.classList.add("is-invalid");
 		errorLegal.textContent = "Aquest camp es obligatori";
