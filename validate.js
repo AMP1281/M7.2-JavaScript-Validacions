@@ -1,6 +1,7 @@
 const form = document.getElementById('myFormId');
 
 function registerValidate() {
+	
 	var acumErrores = 0;
 	
 	form.classList.remove('is-invalid');
