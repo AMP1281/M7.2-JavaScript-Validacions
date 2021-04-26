@@ -34,6 +34,7 @@ var registreForm = registre;
 
 function validacioRegistre() {
 
+
     var inputUsuari = registreForm.elements.usuari;
     var inputProvincia = registreForm.elements.provincia;
     var inputEmaildos = registreForm.elements.emaildos;
@@ -47,28 +48,29 @@ function validacioRegistre() {
 	var count = 0;
 
     //Usuari
-    if (inputUsuari.value.length < 3 || inputUsuari.value.length > 15) {
-        inputUsuari.classList.remove("is-valid");
-        inputUsuari.classList.add("is-invalid");
-        errorUsuari.textContent = "Es seu nom d'usuari ha de contenir entre 3 i 15 caràcters";
-        count ++;
-    } else{
-        inputUsuari.classList.remove("is-invalid");
-        inputUsuari.classList.add("is-valid");
-    }
+        if (inputUsuari.value.length < 3 || inputUsuari.value.length > 15) {
+            inputUsuari.classList.remove("is-valid");
+            inputUsuari.classList.add("is-invalid");
+            errorUsuari.textContent = "Es seu nom d'usuari ha de contenir entre 3 i 15 caràcters";
+            count ++;
+        } else{
+            inputUsuari.classList.remove("is-invalid");
+            inputUsuari.classList.add("is-valid");
+        }
+
 
     //Provincia
-    if (inputProvincia.selectedIndex == 0){
+        if (inputProvincia.selectedIndex == 0){
 
-        inputProvincia.classList.remove("is-valid");
-        inputProvincia.classList.add("is-invalid");
-        errorProvincia.textContent = "Es obligatori seleccionar la seva provincia";
-        count ++;
-    } else{
-        inputProvincia.classList.remove("is-invalid");
-        inputProvincia.classList.add("is-valid");
-    }
-
+            inputProvincia.classList.remove("is-valid");
+            inputProvincia.classList.add("is-invalid");
+            errorProvincia.textContent = "Es obligatori seleccionar la seva provincia";
+            count ++;
+        } else{
+            inputProvincia.classList.remove("is-invalid");
+            inputProvincia.classList.add("is-valid");
+        }
+    
     //Email
     if (!regExpemail.test(inputEmaildos.value)) {
 
@@ -85,24 +87,24 @@ function validacioRegistre() {
     //Contraseña
 
     var error = new Array();
-    var contador= 0;
+    var contador= 0; 
 
     if (!/[A-Z]/.test(inputContrasenyados.value)) {
-        error[contador]= "La contrasenya ha de contenir una majúscula. ";
+        error[contador]= " una majúscula";
         contador++
     }
     if (!/[0-9]/.test(inputContrasenyados.value)) {
-        error[contador]= "La contrasenya ha de contenir un número. ";
+        error[contador]= " un número";
         contador++
     }
     if (inputContrasenyados.value.length < 8) {
-        error[contador]= "La contrasenya ha de contenir mínim 8 caràcters. ";
+        error[contador]= " mínim 8 caràcters";
         contador++
     }
     if (contador > 0) {
         inputContrasenyados.classList.remove("is-valid");
         inputContrasenyados.classList.add("is-invalid");
-        errorContrasenyados.textContent = error;
+        errorContrasenyados.textContent = "Per favor introdueixi:" + error.toString();
         }
     else{
         inputContrasenyados.classList.remove("is-invalid");
@@ -111,7 +113,7 @@ function validacioRegistre() {
 
     //Confirma contrasenya
 
-    if (inputConfirmcontra.value === inputContrasenyados.value && contador == 0 && inputConfirmcontra.value != "" && inputContrasenyados.value != "") {
+    if (inputConfirmcontra.value === inputContrasenyados.value && contador == 0 && inputConfirmcontra.value != "") {
 
         inputConfirmcontra.classList.remove("is-invalid");
         inputConfirmcontra.classList.add("is-valid");
@@ -119,15 +121,7 @@ function validacioRegistre() {
     } else{
         inputConfirmcontra.classList.remove("is-valid");
         inputConfirmcontra.classList.add("is-invalid");
-        errorConfirmcontra.textContent = "No coincideixen les contrasenyes";
-        count ++;
-    }
-
-    if (inputConfirmcontra.value == "") {
-
-        inputConfirmcontra.classList.remove("is-valid");
-        inputConfirmcontra.classList.add("is-invalid");
-        errorConfirmcontra.textContent = "Aquest camp es obligatori";
+        errorConfirmcontra.textContent = "Aquest camp es obligatori, ha de repetir una contrasenya vàlida.";
         count ++;
     }
 
@@ -145,16 +139,30 @@ function validacioRegistre() {
         if (count > 0){
             return false;
         }
+
         else {
+
+            var resultados = new Array();
+
+            for(var i=0; i < 7; i++){
+                resultados.push (registreForm.elements[i].value);
+            }
+
+            $('#myModal').modal(options)
+            
+    
             return true;
         }
-}
+    }
 
-form.addEventListener('blur', (event) => {
-	console.log(event);
-	if(event.target.value!='') event.target.classList.remove('is-invalid');
-    //registerValidate();
-}, true);
+
+
+
+
+
+
+
+
 
 
 
