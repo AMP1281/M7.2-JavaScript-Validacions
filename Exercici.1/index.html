@@ -111,7 +111,7 @@
 
                                             <h1 class="d-flex justify-content-center">Inicia Sessió</h1>
 
-                                                <form id="login" action="proceso.php" method="POST" class="mt-4">
+                                                <form id="login" action="proceso.php" method="POST" class="mt-4" onsubmit="return validacioLogin()">
 
                                                     <div class="form-group">
                                                         <input type="email" id="emailuno"class="form-control" placeholder="Email"> 
@@ -196,21 +196,6 @@
                                                         </label>
                                                     </div>
 
-                                                    <!--Grup Marketing-->
-                                                    <div class="form-group form-check" id="grup__marketing">
-
-                                                        <label for="legal" class="form-check-label mt-n2">
-
-                                                            <input type="checkbox" nom="marketing" id="marketing" class="form-check-input">
-                                                            
-                                                            <p class="small text-muted">Vull rebre promocions exclusives, descomptes i novetats per e.mail.</p>
-
-                                                            <div class="invalid-feedback" id="errorMarketing"></div>
-
-                                                        </label>
-
-                                                    </div>
-
                                                     <!--Boton enviar-->
                                                     <div class="form-group d-flex justify-content-center">
                                                         <input type="submit" value="Enviar"class="btn btn-primary btn-block mt-n2">
@@ -226,17 +211,42 @@
                                         <div id= "myModal" class="modal" tabindex="-1" role="dialog">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Modal title</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Camps validats correctament</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
                                             <div class="modal-body">
-                                                <p>Modal body text goes here.</p>
+                                                <form id="resultats">
+
+                                                        <div class="form-group row">
+                                                            <label for="mUsuari">Usuari</label>
+                                                            <input type="text" name="mUsuari" id="mUsuari" class="form-control" readonly class="form-control-plaintext">
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label for="mProvincia">Provincia</label>
+                                                            <input type="text" name="mProvincia" id="mProvincia" class="form-control" readonly class="form-control-plaintext">
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label for="mEmail">Email</label>
+                                                            <input type="text" name="mEmail" id="mEmail" class="form-control" readonly class="form-control-plaintext">
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label for="mContrasenya">Contrasenya</label>
+                                                            <input type="text" name="mContrasenya" id="mContrasenya" class="form-control" readonly class="form-control-plaintext">
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label for="mLegal">Legal</label>
+                                                            <input type="text" name="mLegal" id="mLegal" class="form-control" readonly class="form-control-plaintext"> 
+
+                                                            <p class="small text-muted">Al crear un compte, acceptes els <a href="#" class="text-muted font-weight-bold">Termes i Condicions</a> i la <a href="#"class="text-muted font-weight-bold">Política de Privadesa</a>, incloent la <a href="#"class="text-muted font-weight-bold">Política de Cookies</a>.</p>
+
+                                                        </div>
+
+                                                </form>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary">Save changes</button>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             </div>
                                             </div>
