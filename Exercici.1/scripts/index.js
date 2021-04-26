@@ -41,7 +41,6 @@ function validacioRegistre() {
     var inputContrasenyados = registreForm.elements.contrasenyados;
     var inputConfirmcontra = registreForm.elements.confirmcontra;
     var inputLegal = registreForm.elements.legal;
-    var inputMarketing = registreForm.elements.marketing;
 
     var regExpemail = /[\w._-]+@[\wñ._-]+(?:\.[\w]+)+/; 
 
@@ -148,12 +147,52 @@ function validacioRegistre() {
                 resultados.push (registreForm.elements[i].value);
             }
 
+            //Resultats en un Modal
+
             $('#myModal').modal('show')
-            
-    
-            return true;
+
+            var resultatsForm = resultats;
+
+            var resUsuari = resultatsForm.elements.mUsuari;
+            var resProvincia = resultatsForm.elements.mProvincia;
+            var resEmaildos = resultatsForm.elements.mEmail;
+            var resContrasenya = resultatsForm.elements.mContrasenya;
+
+            //Usuari
+            resUsuari.value = resultados[0];
+
+            //Provincia
+            if( resultados[1] == "1"){
+                resProvincia.value = "Barcelona";
+            }
+            if( resultados[1] == "2"){
+                resProvincia.value = "Tarragona";
+            }
+            if( resultados[1] == "3"){
+                resProvincia.value = "LLeida";
+            }
+            else{
+                resProvincia.value = "Girona";
+            }
+
+            //Email
+            resEmaildos.value = resultados[2];
+
+            //Contrasenya
+            resContrasenya.value = resultados[3];
+
+
+            return false;
         }
     }
+
+    //VALIDAR INICIA SESSIÓ
+
+    var loginForm = login;
+
+    var logEmail = loginForm.elements.emailuno;
+    var logPassword = loginForm.elements.contrasenyauno;
+
 
 
 
