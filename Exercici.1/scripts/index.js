@@ -148,7 +148,7 @@ function validacioRegistre() {
                 resultados.push (registreForm.elements[i].value);
             }
 
-            $('#myModal').modal(options)
+            $('#myModal').modal('show')
             
     
             return true;

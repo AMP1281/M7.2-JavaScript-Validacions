@@ -142,7 +142,7 @@
 
                                             <h1 class="d-flex justify-content-center">Crea un compte</h1>
 
-                                                <form id="registre" onsubmit="return validacioRegistre()"class="mt-4">
+                                                <form action="registre.php" method="post" id="registre" onsubmit="return validacioRegistre()"class="mt-4">
                                                     
                                                     <!--Grup Usuari-->
                                                     <div class="form-group" id="grup__usuari">
@@ -172,7 +172,7 @@
                                                     <div class="form-group" id="grup__password">
                                                         <input type="password" nom="contrasenyados" id="contrasenyados"class="form-control" placeholder="Contrasenya">
                                                         <small id="passwordHelpBlock" class="form-text text-muted">
-                                                            La contrasenya ha de contenir mínim 8 caràcters, un número i una majúscula.
+                                                            La contrasenya ha de contenir una majúscula, un número i mínim 8 caràcters.
                                                           </small>
                                                         <div class="invalid-feedback" id="errorContrasenyados"></div>
                                                     </div>
@@ -211,7 +211,7 @@
 
                                                     </div>
 
-                                                    <!--Botn enviar-->
+                                                    <!--Boton enviar-->
                                                     <div class="form-group d-flex justify-content-center">
                                                         <input type="submit" value="Enviar"class="btn btn-primary btn-block mt-n2">
                                                     </div>
@@ -220,7 +220,29 @@
                                                 </form>
                                         </div>
                                     
-                                        <!-- END FORMULARI CREAR COMPTE-->
+                                        <!-- END FORMULARI REGISTRE-->
+
+                                        <!-- MODAL RESULTATS-->
+                                        <div id= "myModal" class="modal" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Modal body text goes here.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <!-- END MODAL RESULTATS-->
 
                                     </div>
                                 </div>
