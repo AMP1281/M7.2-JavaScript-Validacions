@@ -141,6 +141,8 @@ function validacioRegistre() {
 
         else {
 
+            $('#mimodal').modal('hide');
+
             var resultados = new Array();
 
             for(var i=0; i < 7; i++){
@@ -149,7 +151,8 @@ function validacioRegistre() {
 
             //Resultats en un Modal
 
-            $('#myModal').modal('show')
+            
+
 
             var resultatsForm = resultats;
 
