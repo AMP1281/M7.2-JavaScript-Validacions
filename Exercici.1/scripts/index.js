@@ -47,6 +47,7 @@ function validacioRegistre() {
 	var count = 0;
 
     //Usuari
+
         if (inputUsuari.value.length < 3 || inputUsuari.value.length > 15) {
             inputUsuari.classList.remove("is-valid");
             inputUsuari.classList.add("is-invalid");
@@ -57,8 +58,8 @@ function validacioRegistre() {
             inputUsuari.classList.add("is-valid");
         }
 
-
     //Provincia
+
         if (inputProvincia.selectedIndex == 0){
 
             inputProvincia.classList.remove("is-valid");
@@ -71,6 +72,7 @@ function validacioRegistre() {
         }
     
     //Email
+
     if (!regExpemail.test(inputEmaildos.value)) {
 
         inputEmaildos.classList.remove("is-valid");
@@ -125,6 +127,7 @@ function validacioRegistre() {
     }
 
     //Legal
+
     if(!inputLegal.checked) {
 		inputLegal.classList.remove("is-valid");
         inputLegal.classList.add("is-invalid");
@@ -135,13 +138,17 @@ function validacioRegistre() {
         inputLegal.classList.add("is-valid");
     }
 
-        if (count > 0){
-            return false;
-        }
+    // Fin validación
 
-        else {
+    if (count > 0){
+        return false;
+    }
 
-            $('#mimodal').modal('hide');
+    else {
+
+        $('#mimodal').modal('hide');
+
+    // Mostrar modal resultados
 
             var resultados = new Array();
 
@@ -150,8 +157,6 @@ function validacioRegistre() {
             }
 
             //Resultats en un Modal
-
-            
 
 
             var resultatsForm = resultats;
@@ -184,10 +189,14 @@ function validacioRegistre() {
             //Contrasenya
             resContrasenya.value = resultados[3];
 
+            $('#myModal').modal("show");
 
-            //return false;
+            return true;
+
         }
     }
+
+
 
     //VALIDAR INICIA SESSIÓ
 
@@ -196,16 +205,33 @@ function validacioRegistre() {
     var logEmail = loginForm.elements.emailuno;
     var logPassword = loginForm.elements.contrasenyauno;
 
-    var registro = new Map ();
+        function validacioLogin() {
 
-   
+            var countlog = 0;
 
+            //Usuari
 
+            if(resultados.includes(logEmail.value) == false){
+                logEmail.classList.remove("is-valid");
+                logEmail.classList.add("is-invalid");
+                errorEmail.textContent = "Es seu nom d'usuari ha de contenir entre 3 i 15 caràcters";
+                countlog ++;
+            } else{
+                logEmail.classList.remove("is-invalid");
+                logEmail.classList.add("is-valid");
+            }
 
+            if(resultados.includes(logPassword.value) == false){
+                logPassword.classList.remove("is-valid");
+                logPassword.classList.add("is-invalid");
+                errorContrasenya.textContent = "Es seu nom d'usuari ha de contenir entre 3 i 15 caràcters";
+                countlog ++;
+            } else{
+                logPassword.classList.remove("is-invalid");
+                logPassword.classList.add("is-valid");
+            }
 
-
-
-
+            }
 
 
 
