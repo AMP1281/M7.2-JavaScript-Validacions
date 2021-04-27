@@ -182,7 +182,7 @@ function validacioRegistre() {
             resContrasenya.value = resultados[3];
 
 
-            return false;
+            //return false;
         }
     }
 
@@ -193,8 +193,9 @@ function validacioRegistre() {
     var logEmail = loginForm.elements.emailuno;
     var logPassword = loginForm.elements.contrasenyauno;
 
+    var registro = new Map ();
 
-
+   
 
 
 

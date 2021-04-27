@@ -91,26 +91,25 @@
 
                     <!--Button to Open the Modal-->
                     <button type="button" class="btn btn-secondary order-2 order-lg-5" data-toggle="modal" data-target="#mimodal" data-backdrop="false"><i class="fas fa-user"></i> Login / Registre</button>
-                    <!--Modal-->
+
+                    <!--Modal Login/Registre-->
                     <div class="modal fade" id="mimodal">
-                        <div class="modal-dialog modal-lg">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
                             <div class="modal-content bg-light">
-                                <!--Modal Header-->
+
+                                <!--Modal Login/Registre Header-->
                                 <div class="modal-header d-flex">
                                     <h4 class="modal-title d-flex"></h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="close">&times;</button>
                                 </div>
-                                <!--Modal body-->
+
+                                <!--Modal Login/Registre body-->
                                 <div class="modal-body">
-                                    <!--Form-->
                                     <div class="row">
-
-
-                                        <!-- FORMULARI LOGIN-->
                                         <div class="col-lg-6">
-
                                             <h1 class="d-flex justify-content-center">Inicia Sessió</h1>
 
+                                                <!--Modal Login/Registre FORMULARI LOGIN-->
                                                 <form id="login" action="proceso.php" method="POST" class="mt-4" onsubmit="return validacioLogin()">
 
                                                     <div class="form-group">
@@ -133,16 +132,16 @@
 
                                                 </form>
                                         </div>
-                                        <!--END INICIA SESSIO-->
+                                        <!--Modal Login/Registre END FORMULARI LOGIN-->
 
 
 
-                                        <!--FORMULARI REGISTRE-->
+                                        <!--Modal Login/Registre FORMULARI REGISTRE-->
                                         <div class="col-lg-6">
 
                                             <h1 class="d-flex justify-content-center">Crea un compte</h1>
 
-                                                <form action="registre.php" method="post" id="registre" onsubmit="return validacioRegistre()"class="mt-4">
+                                                <form id="registre" onsubmit="return validacioRegistre()"class="mt-4">
                                                     
                                                     <!--Grup Usuari-->
                                                     <div class="form-group" id="grup__usuari">
@@ -205,51 +204,79 @@
                                                 </form>
                                         </div>
                                     
-                                        <!-- END FORMULARI REGISTRE-->
+                                        <!-- Modal Login/Registre END FORMULARI REGISTRE-->
 
-                                        <!-- MODAL RESULTATS-->
-                                        <div id= "myModal" class="modal" tabindex="-1" role="dialog">
-                                        <div class="modal-dialog" role="document">
+                                        <!-- Modal Resultats-->
+                                        <div id= "myModal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-dialog-centered modal-lg">
+
                                             <div class="modal-content">
+
+                                                <!--Modal Resultats Header-->
                                                 <div class="modal-header">
+
                                                     <h5 class="modal-title">Camps validats correctament</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                     </button>
+
                                                 </div>
-                                            <div class="modal-body">
-                                                <form id="resultats">
 
-                                                        <div class="form-group row">
-                                                            <label for="mUsuari">Usuari</label>
-                                                            <input type="text" name="mUsuari" id="mUsuari" class="form-control" readonly class="form-control-plaintext">
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label for="mProvincia">Provincia</label>
-                                                            <input type="text" name="mProvincia" id="mProvincia" class="form-control" readonly class="form-control-plaintext">
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label for="mEmail">Email</label>
-                                                            <input type="text" name="mEmail" id="mEmail" class="form-control" readonly class="form-control-plaintext">
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label for="mContrasenya">Contrasenya</label>
-                                                            <input type="text" name="mContrasenya" id="mContrasenya" class="form-control" readonly class="form-control-plaintext">
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label for="mLegal">Legal</label>
-                                                            <input type="text" name="mLegal" id="mLegal" class="form-control" readonly class="form-control-plaintext"> 
+                                                <!--Modal Resultats Body-->
+                                                <div class="modal-body">
+                                                    <div class="row mx-4 mt-5">
+                                                        <div class="col">
 
-                                                            <p class="small text-muted">Al crear un compte, acceptes els <a href="#" class="text-muted font-weight-bold">Termes i Condicions</a> i la <a href="#"class="text-muted font-weight-bold">Política de Privadesa</a>, incloent la <a href="#"class="text-muted font-weight-bold">Política de Cookies</a>.</p>
+                                                            <!--Modal Resultats FORMULARI RESULTATS-->
+                                                            <form id="resultats">
 
+                                                                    <div class="form-group row">
+                                                                        <div class="col-md-4">
+                                                                            <label for="mUsuari">Usuari</label>
+                                                                        </div>
+                                                                        <div class="col-md-8">
+                                                                            <input type="text" name="mUsuari" id="mUsuari" class="form-control" readonly class="form-control-plaintext">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <div class="col-md-4">
+                                                                            <label for="mProvincia">Provincia</label>
+                                                                        </div>
+                                                                        <div class="col-md-8">
+                                                                            <input type="text" name="mProvincia" id="mProvincia" class="form-control" readonly class="form-control-plaintext">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <div class="col-md-4">
+                                                                            <label for="mEmail">Email</label>
+                                                                        </div>
+                                                                        <div class="col-md-8">
+                                                                            <input type="text" name="mEmail" id="mEmail" class="form-control" readonly class="form-control-plaintext">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <div class="col-md-4">
+                                                                            <label for="mContrasenya">Contrasenya</label>
+                                                                        </div>
+                                                                        <div class="col-md-8">
+                                                                            <input type="text" name="mContrasenya" id="mContrasenya" class="form-control" readonly class="form-control-plaintext">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row mt-3">
+                                                                        <div class="col-md-12">
+                                                                            <label for="mLegal"><p class="small text-muted">Ha acceptat els <a href="#" class="text-muted font-weight-bold">Termes i Condicions</a> i la <a href="#"class="text-muted font-weight-bold">Política de Privadesa</a>, incloent la <a href="#"class="text-muted font-weight-bold">Política de Cookies</a>.</p></label>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                            </form>
                                                         </div>
-
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            </div>
-                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                                </div>
+                                                </div>
                                         </div>
                                         </div>
                                         <!-- END MODAL RESULTATS-->
