@@ -192,6 +192,7 @@ function validacioRegistre() {
             //Contrasenya
             resContrasenya.value = resultados[3];
 
+            //Boton Aceptar oculta registro
             resAcceptar.addEventListener('click', function(){div.style.display = 'none';});
 
 
@@ -205,41 +206,74 @@ function validacioRegistre() {
 
         logInici.addEventListener('click', function(){
 
-            var countlog = 0;
-
             //Usuari
 
-            if(resultados.includes(logEmail.value) == false){
+            var errorLogin = new Array();
+            var contadorLogin= 0; 
+
+            if (resultados.includes(logEmail.value) == false) {
+                errorLogin[contadorLogin]= "Usuari no registrat";
+                contadorLogin++
+                }
+
+            if (logEmail.value.length < 1) {
+                errorLogin[contadorLogin]= "Aquest camp es obligatori";
+                errorLogin.shift();
+                contadorLogin++
+                }
+
+            if (contadorLogin > 0) {
                 logEmail.classList.remove("is-valid");
                 logEmail.classList.add("is-invalid");
-                errorEmail.textContent = "Usuari no registrat";
-                countlog ++;
-            } else{
-                logEmail.classList.remove("is-invalid");
-                logEmail.classList.add("is-valid");
+                errorEmail.textContent = errorLogin.toString();
+                }
+
+            else{
+            logEmail.classList.remove("is-invalid");
+            logEmail.classList.add("is-valid");
             }
 
-            if(resultados.includes(logPassword.value) == false){
+            //Contrasenya
+
+            var errorLoginP = new Array();
+            var contadorLoginP = 0; 
+
+            if (resultados.includes(logPassword.value) == false) {
+                errorLoginP[contadorLoginP]= "Email no registrat";
+                contadorLoginP++
+                }
+
+            if (logPassword.value.length < 1) {
+                errorLoginP[contadorLoginP]= "Aquest camp es obligatori";
+                errorLoginP.shift();
+                contadorLoginP++
+                }
+
+            if (contadorLoginP > 0) {
                 logPassword.classList.remove("is-valid");
                 logPassword.classList.add("is-invalid");
-                errorContrasenya.textContent = "Contrasenya no registrada";
-                countlog ++;
-            } else{
-                logPassword.classList.remove("is-invalid");
-                logPassword.classList.add("is-valid");
+                errorContrasenya.textContent = errorLoginP.toString();
+                }
+
+            else{
+            logPassword.classList.remove("is-invalid");
+            logPassword.classList.add("is-valid");
             }
+
+
             // Loop
-            if (countlog > 0){
+            if (contadorLogin > 0 || contadorLoginP > 0){
             return false;
             }
 
             // Fin validación
             else {
+                return true;
             }
 
 
 
-            });
+        });
 
 
         }
