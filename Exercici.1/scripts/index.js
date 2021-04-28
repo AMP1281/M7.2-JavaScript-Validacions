@@ -147,12 +147,13 @@ function validacioRegistre() {
     // Fin validación
     else {
 
-        $('#mimodal').modal('hide');
-        return true;
+        div = document.getElementById('test');
+        div.style.display = '';
 
-    }
-}
-    // Mostrar modal resultados
+
+
+
+    //  MOSTRAR RESULTADOS
     var resultados = new Array();
 
     for(var i=0; i < 7; i++){
@@ -160,15 +161,13 @@ function validacioRegistre() {
     }
 
 
-            //Resultats en un Modal
-
-
-            var resultatsForm = resultats;
+            var resultatsForm = document.getElementById('resultats');
 
             var resUsuari = resultatsForm.elements.mUsuari;
             var resProvincia = resultatsForm.elements.mProvincia;
             var resEmaildos = resultatsForm.elements.mEmail;
             var resContrasenya = resultatsForm.elements.mContrasenya;
+            var resAcceptar = resultatsForm.elements.mAcceptar;
 
             //Usuari
             resUsuari.value = resultados[0];
@@ -193,21 +192,18 @@ function validacioRegistre() {
             //Contrasenya
             resContrasenya.value = resultados[3];
 
+            resAcceptar.addEventListener('click', function(){div.style.display = 'none';});
 
 
+        //VALIDAR INICIA SESSIÓ
 
+        var loginForm = login;
 
+        var logEmail = loginForm.elements.emailuno;
+        var logPassword = loginForm.elements.contrasenyauno;
+        var logInici= loginForm.elements.btnInici;
 
-
-
-    //VALIDAR INICIA SESSIÓ
-
-    var loginForm = login;
-
-    var logEmail = loginForm.elements.emailuno;
-    var logPassword = loginForm.elements.contrasenyauno;
-
-        function validacioLogin() {
+        logInici.addEventListener('click', function(){
 
             var countlog = 0;
 
@@ -216,7 +212,7 @@ function validacioRegistre() {
             if(resultados.includes(logEmail.value) == false){
                 logEmail.classList.remove("is-valid");
                 logEmail.classList.add("is-invalid");
-                errorEmail.textContent = "Es seu nom d'usuari ha de contenir entre 3 i 15 caràcters";
+                errorEmail.textContent = "Usuari no registrat";
                 countlog ++;
             } else{
                 logEmail.classList.remove("is-invalid");
@@ -226,14 +222,42 @@ function validacioRegistre() {
             if(resultados.includes(logPassword.value) == false){
                 logPassword.classList.remove("is-valid");
                 logPassword.classList.add("is-invalid");
-                errorContrasenya.textContent = "Es seu nom d'usuari ha de contenir entre 3 i 15 caràcters";
+                errorContrasenya.textContent = "Contrasenya no registrada";
                 countlog ++;
             } else{
                 logPassword.classList.remove("is-invalid");
                 logPassword.classList.add("is-valid");
             }
-
+            // Loop
+            if (countlog > 0){
+            return false;
             }
+
+            // Fin validación
+            else {
+            }
+
+
+
+            });
+
+
+        }
+
+        return false;
+    }
+
+        
+
+        
+
+
+
+
+
+
+
+
 
 
 
