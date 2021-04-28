@@ -32,17 +32,18 @@ var cercaForm = cerca;
 
 var registreForm = registre;
 
+var inputUsuari = registreForm.elements.usuari;
+var inputProvincia = registreForm.elements.provincia;
+var inputEmaildos = registreForm.elements.emaildos;
+var inputContrasenyados = registreForm.elements.contrasenyados;
+var inputConfirmcontra = registreForm.elements.confirmcontra;
+var inputLegal = registreForm.elements.legal;
+
+var regExpemail = /[\w._-]+@[\wñ._-]+(?:\.[\w]+)+/; 
+
+
+
 function validacioRegistre() {
-
-
-    var inputUsuari = registreForm.elements.usuari;
-    var inputProvincia = registreForm.elements.provincia;
-    var inputEmaildos = registreForm.elements.emaildos;
-    var inputContrasenyados = registreForm.elements.contrasenyados;
-    var inputConfirmcontra = registreForm.elements.confirmcontra;
-    var inputLegal = registreForm.elements.legal;
-
-    var regExpemail = /[\w._-]+@[\wñ._-]+(?:\.[\w]+)+/; 
 
 	var count = 0;
 
@@ -138,23 +139,26 @@ function validacioRegistre() {
         inputLegal.classList.add("is-valid");
     }
 
-    // Fin validación
-
+    // Loop
     if (count > 0){
         return false;
     }
 
+    // Fin validación
     else {
 
         $('#mimodal').modal('hide');
+        return true;
 
+    }
+}
     // Mostrar modal resultados
+    var resultados = new Array();
 
-            var resultados = new Array();
+    for(var i=0; i < 7; i++){
+        resultados.push (registreForm.elements[i].value);
+    }
 
-            for(var i=0; i < 7; i++){
-                resultados.push (registreForm.elements[i].value);
-            }
 
             //Resultats en un Modal
 
@@ -189,12 +193,10 @@ function validacioRegistre() {
             //Contrasenya
             resContrasenya.value = resultados[3];
 
-            $('#myModal').modal("show");
 
-            return true;
 
-        }
-    }
+
+
 
 
 
