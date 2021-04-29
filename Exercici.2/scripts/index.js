@@ -37,6 +37,7 @@ var inputEmaildos = registreForm.elements.emaildos;
 var inputContrasenyados = registreForm.elements.contrasenyados;
 var inputConfirmcontra = registreForm.elements.confirmcontra;
 var inputLegal = registreForm.elements.legal;
+var inputBtnregistre = registreForm.elements.btnRegistre;
 
 var regExpemail = /[\w._-]+@[\wñ._-]+(?:\.[\w]+)+/; 
 
@@ -159,6 +160,7 @@ function validacioRegistre() {
             inputContrasenyados.setAttribute('disabled', 'true');
             inputConfirmcontra.setAttribute('disabled', 'true');
             inputLegal.setAttribute('disabled', 'true');
+            inputBtnregistre.setAttribute('disabled', 'true');
 
             div = document.getElementById('divResultats');
 
