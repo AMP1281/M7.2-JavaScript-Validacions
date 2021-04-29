@@ -1,0 +1,18 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Kingthings_Exeter
+font link: http://www.kingthingsfonts.co.uk/fonts/fonts.htm
+font author: Kingthings
+font author site: http://www.kingthingsfonts.co.uk/
+
+
+icon designer: Dmitriy T
+icon designer link: /demos
+        
+
+fontColor: {"gradient-0":"#FF3535","gradient-1":"#FFD905"}
+bgColor: {"gradient-0":"#030303","gradient-1":"#252525"}
+iconColor: {"gradient-0":"#FF3535","gradient-1":"#FFD905"}
+
+      

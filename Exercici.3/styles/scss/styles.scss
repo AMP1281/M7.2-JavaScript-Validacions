@@ -1,0 +1,40 @@
+
+
+@import "reset";
+
+/*BODY*/
+html, body {
+padding-top: 50px;
+padding-bottom: 30px;
+}
+
+        body > div.container > section > div > div:nth-child(1) > a {
+            border-top-left-radius: 0px !important;
+            border-top-right-radius: 0px !important;
+        }
+
+        body > div.container > section > div > div:nth-child(2) > a {
+            border-top-left-radius: 0px !important;
+            border-top-right-radius: 0px !important;
+        }
+
+        body > div.container > section > div > div:nth-child(3) > a {
+            border-top-left-radius: 0px !important;
+            border-top-right-radius: 0px !important;
+        }
+
+        body > div.container.d-flex > section > div.jumbotron.flex-row.d-flex.justify-content-center{
+            background-color: #ecb900;
+        }
+        body > div.container.d-flex > section > div.jumbotron.flex-column.d-flex.justify-content-center.mt-5{
+            background-color: #ecb900;
+        }
+
+/*footer*/
+body > footer > nav > div > button > span > i{
+    vertical-align: middle;
+    font-size: 2rem;
+    line-height: 1;
+    border-style: none;
+}
+
