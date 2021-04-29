@@ -153,7 +153,6 @@ function validacioRegistre() {
 
         else {
 
-            //$('#usuari').attr('readonly', true);
             inputUsuari.setAttribute('disabled', 'true');
             inputProvincia.setAttribute('disabled', 'true');
             inputEmaildos.setAttribute('disabled', 'true');
@@ -223,7 +222,7 @@ function validacioRegistre() {
                 
                 function logInfun(e) {
 
-                    e.preventDefault();
+                    e.preventDefault(); //El formulari no es tanca
 
                     //Usuari
 
@@ -322,13 +321,13 @@ function noRegistrado(e){
         errorContrasenya.textContent = "Usuari no registrat, crea un compte";
     }
 
-    logEmail.addEventListener('change', updateEmail);
+    logEmail.addEventListener('change', updateEmail); // Si modifica text treu is-invalid
 
     function updateEmail() {
         logEmail.classList.remove("is-invalid");
     }
 
-    logPassword.addEventListener('change', updatePassword);
+    logPassword.addEventListener('change', updatePassword); // Si modifica text treu is-invalid
 
     function updatePassword() {
         logPassword.classList.remove("is-invalid");

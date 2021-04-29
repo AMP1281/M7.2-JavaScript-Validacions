@@ -153,7 +153,6 @@ function validacioRegistre() {
 
         else {
 
-            //$('#usuari').attr('readonly', true);
             inputUsuari.setAttribute('disabled', 'true');
             inputProvincia.setAttribute('disabled', 'true');
             inputEmaildos.setAttribute('disabled', 'true');
