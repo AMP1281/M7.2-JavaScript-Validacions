@@ -27,7 +27,6 @@ var cercaForm = cerca;
         }
     }
 
-
 //Validar formulari registre
 
 var registreForm = registre;
@@ -40,6 +39,12 @@ var inputConfirmcontra = registreForm.elements.confirmcontra;
 var inputLegal = registreForm.elements.legal;
 
 var regExpemail = /[\w._-]+@[\wñ._-]+(?:\.[\w]+)+/; 
+
+var loginForm = login;
+
+var logEmail = loginForm.elements.emailuno;
+var logPassword = loginForm.elements.contrasenyauno;
+var logInici= loginForm.elements.btnInici;
 
 function validacioRegistre() {
 
@@ -204,13 +209,11 @@ function validacioRegistre() {
 
                 //Validar formulari Inicia Sessió
 
-                var loginForm = login;
+                logInici.addEventListener('click', logInfun);
+                
+                function logInfun(e) {
 
-                var logEmail = loginForm.elements.emailuno;
-                var logPassword = loginForm.elements.contrasenyauno;
-                var logInici= loginForm.elements.btnInici;
-
-                logInici.addEventListener('click', function(){
+                    e.preventDefault();
 
                     //Usuari
 
@@ -272,7 +275,7 @@ function validacioRegistre() {
                         return true;
                     }
 
-                }); //Fi function botó Inicia Sessió
+                }; //Fi function botó Inicia Sessió
 
 
         return false; // 
@@ -281,7 +284,52 @@ function validacioRegistre() {
 
     } // Fi function
 
-                
+    //Validar formulari Inicia Sessió sense registrarse
+
+    logInici.addEventListener('click', noRegistrado);
+    
+    function noRegistrado(e){
+
+        e.preventDefault();
+
+        var countnoReg = 0;
+
+        if (logEmail.value.length < 1) {
+            logEmail.classList.remove("is-valid");
+            logEmail.classList.add("is-invalid");
+            errorEmail.textContent = "Aquest camp es obligatori";
+            countnoReg ++;
+        }
+        if (logEmail.value.length > 1) {
+            logEmail.classList.remove("is-valid");
+            logEmail.classList.add("is-invalid");
+            errorEmail.textContent = "Usuari no registrat, crea un compte";
+            countnoReg ++;
+        }
+
+        if (logPassword.value.length < 1) {
+            logPassword.classList.remove("is-valid");
+            logPassword.classList.add("is-invalid");
+            errorContrasenya.textContent = "Aquest camp es obligatori";
+            countnoReg ++;
+        }
+        if (logPassword.value.length > 1) {
+            logPassword.classList.remove("is-valid");
+            logPassword.classList.add("is-invalid");
+            errorContrasenya.textContent = "Usuari no registrat, crea un compte";
+            countnoReg ++;
+        }
+        if (countnoReg > 0){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+        
+
+    
 
                 
 
