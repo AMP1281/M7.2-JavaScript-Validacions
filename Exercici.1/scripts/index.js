@@ -152,6 +152,14 @@ function validacioRegistre() {
 
         else {
 
+            //$('#usuari').attr('readonly', true);
+            inputUsuari.setAttribute('disabled', 'true');
+            inputProvincia.setAttribute('disabled', 'true');
+            inputEmaildos.setAttribute('disabled', 'true');
+            inputContrasenyados.setAttribute('disabled', 'true');
+            inputConfirmcontra.setAttribute('disabled', 'true');
+            inputLegal.setAttribute('disabled', 'true');
+
             div = document.getElementById('divResultats');
 
             div.style.display = ''; //Mostra el div on estan els resultats
@@ -220,7 +228,7 @@ function validacioRegistre() {
                     var errorLogin = new Array();
                     var contadorLogin= 0; 
 
-                    if (resultados.includes(logEmail.value) == false) {
+                    if (logEmail.value != resultados[2]) {
                         errorLogin[contadorLogin]= "Usuari no registrat";
                         contadorLogin++
                         }
@@ -244,7 +252,7 @@ function validacioRegistre() {
                     var errorLoginP = new Array();
                     var contadorLoginP = 0; 
 
-                    if (resultados.includes(logPassword.value) == false) {
+                    if (logPassword.value != resultados [3]) {
                         errorLoginP[contadorLoginP]= "Email no registrat";
                         contadorLoginP++
                         }
