@@ -284,48 +284,47 @@ function validacioRegistre() {
 
     } // Fi function
 
-    //Validar formulari Inicia Sessió sense registrarse
+// Validar formulari Inicia Sessió SENSE REGISTRARSE
 
-    logInici.addEventListener('click', noRegistrado);
-    
-    function noRegistrado(e){
+logInici.addEventListener('click', noRegistrado);
 
-        e.preventDefault();
+function noRegistrado(e){
 
-        var countnoReg = 0;
+    e.preventDefault();
 
-        if (logEmail.value.length < 1) {
-            logEmail.classList.remove("is-valid");
-            logEmail.classList.add("is-invalid");
-            errorEmail.textContent = "Aquest camp es obligatori";
-            countnoReg ++;
-        }
-        if (logEmail.value.length > 1) {
-            logEmail.classList.remove("is-valid");
-            logEmail.classList.add("is-invalid");
-            errorEmail.textContent = "Usuari no registrat, crea un compte";
-            countnoReg ++;
-        }
-
-        if (logPassword.value.length < 1) {
-            logPassword.classList.remove("is-valid");
-            logPassword.classList.add("is-invalid");
-            errorContrasenya.textContent = "Aquest camp es obligatori";
-            countnoReg ++;
-        }
-        if (logPassword.value.length > 1) {
-            logPassword.classList.remove("is-valid");
-            logPassword.classList.add("is-invalid");
-            errorContrasenya.textContent = "Usuari no registrat, crea un compte";
-            countnoReg ++;
-        }
-        if (countnoReg > 0){
-            return false;
-        }
-        else {
-            return true;
-        }
+    if (logEmail.value.length == "") {
+        logEmail.classList.add("is-invalid");
+        errorEmail.textContent = "Aquest camp es obligatori";
     }
+
+    if (logEmail.value.length != "") {
+        logEmail.classList.add("is-invalid");
+        errorEmail.textContent = "Usuari no registrat, crea un compte";
+    }
+
+    if (logPassword.value.length == "") {
+        logPassword.classList.add("is-invalid");
+        errorContrasenya.textContent = "Aquest camp es obligatori";
+    }
+
+    if (logPassword.value.length != "") {
+        logPassword.classList.add("is-invalid");
+        errorContrasenya.textContent = "Usuari no registrat, crea un compte";
+    }
+
+    logEmail.addEventListener('change', updateEmail);
+
+    function updateEmail() {
+        logEmail.classList.remove("is-invalid");
+    }
+
+    logPassword.addEventListener('change', updatePassword);
+
+    function updatePassword() {
+        logPassword.classList.remove("is-invalid");
+    }
+        
+}
 
         
 
