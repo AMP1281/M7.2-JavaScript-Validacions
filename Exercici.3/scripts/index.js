@@ -112,8 +112,7 @@ function validacioRegistre() {
             contador++
         }
         if (contador > 0) {
-            inputContrasenyados.classList.remove("is-valid");
-            inputContrasenyados.classList.add("is-invalid");
+            invalid(inputContrasenyados);
             errorContrasenyados.textContent = "Per favor introdueixi:" + error.toString();
         }
         else {
