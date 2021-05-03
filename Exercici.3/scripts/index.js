@@ -49,45 +49,49 @@ var logInici= loginForm.elements.btnInici;
 
 function validacioRegistre() {
 
+    function invalid(ele){
+        ele.classList.remove("is-valid");
+        ele.classList.add("is-invalid");
+    }
+    
+    function valid(ele){
+        ele.classList.remove("is-invalid");
+        ele.classList.add("is-valid");
+    }
+
 	var count = 0;
 
     //Usuari
 
         if (inputUsuari.value.length < 3 || inputUsuari.value.length > 15) {
-            inputUsuari.classList.remove("is-valid");
-            inputUsuari.classList.add("is-invalid");
+            invalid (inputUsuari);
             errorUsuari.textContent = "Es seu nom d'usuari ha de contenir entre 3 i 15 caràcters";
             count ++;
         } 
         else {
-            inputUsuari.classList.remove("is-invalid");
-            inputUsuari.classList.add("is-valid");
+            valid(inputUsuari);
         }
 
     //Provincia
 
         if (inputProvincia.selectedIndex == 0){
-            inputProvincia.classList.remove("is-valid");
-            inputProvincia.classList.add("is-invalid");
+            invalid (inputProvincia);
             errorProvincia.textContent = "Es obligatori seleccionar la seva provincia";
             count ++;
         } 
         else {
-            inputProvincia.classList.remove("is-invalid");
-            inputProvincia.classList.add("is-valid");
+            valid(inputProvincia);
         }
 
     //Email
 
         if (!regExpemail.test(inputEmaildos.value)) {
-            inputEmaildos.classList.remove("is-valid");
-            inputEmaildos.classList.add("is-invalid");
+            invalid (inputEmaildos);
             errorEmaildos.textContent = "Introdueix una direcció de correu electrónic vàlida";
             count ++;
         }
         else {
-            inputEmaildos.classList.remove("is-invalid");
-            inputEmaildos.classList.add("is-valid");
+            valid(inputEmaildos);
         }
 
     //Contraseña
@@ -113,19 +117,16 @@ function validacioRegistre() {
             errorContrasenyados.textContent = "Per favor introdueixi:" + error.toString();
         }
         else {
-            inputContrasenyados.classList.remove("is-invalid");
-            inputContrasenyados.classList.add("is-valid");
+            valid(inputContrasenyados);
         }
 
     //Confirma contrasenya
 
         if (inputConfirmcontra.value === inputContrasenyados.value && contador == 0 && inputConfirmcontra.value != "") {
-            inputConfirmcontra.classList.remove("is-invalid");
-            inputConfirmcontra.classList.add("is-valid");
+            valid(inputConfirmcontra);
         } 
         else {
-            inputConfirmcontra.classList.remove("is-valid");
-            inputConfirmcontra.classList.add("is-invalid");
+            invalid (inputConfirmcontra);
             errorConfirmcontra.textContent = "Aquest camp es obligatori, ha de repetir una contrasenya vàlida.";
             count ++;
         }
@@ -133,14 +134,12 @@ function validacioRegistre() {
     //Legal
 
         if (!inputLegal.checked) {
-            inputLegal.classList.remove("is-valid");
-            inputLegal.classList.add("is-invalid");
+            invalid (inputLegal);
             errorLegal.textContent = "Aquest camp es obligatori";
             count ++;
 	    } 
         else {
-            inputLegal.classList.remove("is-invalid");
-            inputLegal.classList.add("is-valid");
+            valid(inputLegal);
         }
 
     // Si dades no correctes return false. No avança
@@ -239,13 +238,11 @@ function validacioRegistre() {
                         contadorLogin++
                         }
                     if (contadorLogin > 0) {
-                        logEmail.classList.remove("is-valid");
-                        logEmail.classList.add("is-invalid");
+                        invalid (logEmail);
                         errorEmail.textContent = errorLogin.toString();
                         }
                     else{
-                    logEmail.classList.remove("is-invalid");
-                    logEmail.classList.add("is-valid");
+                    valid (logEmail);
                     }
 
                     //Contrasenya
@@ -263,13 +260,11 @@ function validacioRegistre() {
                         contadorLoginP++
                         }
                     if (contadorLoginP > 0) {
-                        logPassword.classList.remove("is-valid");
-                        logPassword.classList.add("is-invalid");
+                        invalid (logPassword);
                         errorContrasenya.textContent = errorLoginP.toString();
                         }
                     else{
-                    logPassword.classList.remove("is-invalid");
-                    logPassword.classList.add("is-valid");
+                    valid (logPassword);
                     }
 
                     // Si dades no correctes return false. No avança.
