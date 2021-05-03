@@ -230,7 +230,7 @@ function validacioRegistre() {
                     var contadorLogin= 0; 
 
                     if (logEmail.value != resultados[2]) {
-                        errorLogin[contadorLogin]= "Usuari no registrat";
+                        errorLogin[contadorLogin]= "Email no registrat";
                         contadorLogin++
                         }
                     if (logEmail.value.length < 1) {

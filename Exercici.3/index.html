@@ -105,16 +105,16 @@
 
                                                     <div class="form-group">
                                                         <input type="text" id="emailuno"class="form-control" placeholder="Email">
-                                                        <div class="invalid-feedback" id="errorEmail"></div> 
+                                                        <div class="invalid-feedback position-absolute" id="errorEmail"></div> 
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <input type="password" id="contrasenyauno"class="form-control" placeholder="Contrasenya">
-                                                        <div class="invalid-feedback" id="errorContrasenya"></div>
+                                                        <input type="password" id="contrasenyauno" class="form-control mt-4" placeholder="Contrasenya">
+                                                        <div class="invalid-feedback position-absolute" id="errorContrasenya"></div>
                                                     </div>
 
-                                                    <div class="form-group d-flex justify-content-center">
-                                                        <input type="submit" id="btnInici" value="Enviar"class="btn btn-primary btn-block mt-2">
+                                                    <div class="form-group d-flex justify-content-center mt-4 pt-1">
+                                                        <input type="submit" id="btnInici" value="Enviar"class="btn btn-primary btn-block">
                                                     </div>
 
                                                     <div class="form-group">
@@ -139,11 +139,11 @@
                                                     <!--Grup Usuari-->
                                                     <div class="form-group" id="grup__usuari">
                                                             <input type="text" name="usuari" id="usuari" class="form-control" placeholder="Usuari">
-                                                            <div class="invalid-feedback" id="errorUsuari"></div>
+                                                            <div class="invalid-feedback position-absolute" id="errorUsuari"></div>
                                                     </div>
 
                                                     <!--Grup provincia-->
-                                                    <div class="form-group" id="grup__provincia">
+                                                    <div class="form-group mt-4" id="grup__provincia">
                                                         <select class="custom-select" nom="provincia" id="provincia">
                                                             <option selected>Selecciona la teva provincia</option>
                                                             <option value="1">Barcelona</option>
@@ -151,48 +151,49 @@
                                                             <option value="3">Lleida</option>
                                                             <option value="4">Girona</option>
                                                         </select>
-                                                        <div class="invalid-feedback" id="errorProvincia"></div>
+                                                        <div class="invalid-feedback position-absolute" id="errorProvincia"></div>
                                                     </div>
 
                                                     <!--Grup email-->
-                                                    <div class="form-group" id="grup__email">
+                                                    <div class="form-group mt-4" id="grup__email">
                                                         <input type="text" nom="emaildos" id="emaildos"class="form-control" placeholder="Email">
-                                                        <div class="invalid-feedback" id="errorEmaildos"></div>
+                                                        <div class="invalid-feedback position-absolute" id="errorEmaildos"></div>
                                                     </div>
 
                                                     <!--Grup Password-->
-                                                    <div class="form-group" id="grup__password">
+                                                    <div class="form-group mt-4" id="grup__password">
                                                         <input type="password" nom="contrasenyados" id="contrasenyados"class="form-control" placeholder="Contrasenya">
                                                         <small id="passwordHelpBlock" class="form-text text-muted">
                                                             La contrasenya ha de contenir una majúscula, un número i mínim 8 caràcters.
                                                           </small>
-                                                        <div class="invalid-feedback" id="errorContrasenyados"></div>
+                                                        <div class="invalid-feedback position-absolute" id="errorContrasenyados"></div>
                                                     </div>
 
                                                     <!--Grup Password2-->
-                                                    <div class="form-group" id="grup__password2">
+                                                    <div class="form-group mt-4" id="grup__password2">
                                                         <input type="password" nom="confirmcontra" id="confirmcontra"class="form-control" placeholder="Confirma la contrasenya">
-                                                        <div class="invalid-feedback" id="errorConfirmcontra"></div>
+                                                        <div class="invalid-feedback position-absolute" id="errorConfirmcontra"></div>
                                                     </div>
 
                                                     <!--Grup Legal-->
-                                                    <div class="form-group form-check" id="grup__legal">
+                                                    <div class="form-group form-check mt-4" id="grup__legal">
 
-                                                        <label for="legal" class="form-check-label mb-n3">
+                                                        <label for="legal" class="form-check-label">
 
                                                             <input type="checkbox" nom="legal" id="legal" class="form-check-input">
 
                                                                 <p class="small text-muted">Al crear un compte, acceptes els <a href="#" class="text-muted font-weight-bold">Termes i Condicions</a> i la <a href="#"class="text-muted font-weight-bold">Política de Privadesa</a>, incloent la <a href="#"class="text-muted font-weight-bold">Política de Cookies</a>.</p>
 
-                                                                <div class="invalid-feedback" id="errorLegal"></div>
+                                                                <div class="invalid-feedback position-absolute mt-n3" id="errorLegal"></div>
                                                         </label>
                                                     </div>
 
                                                     <!--Boton enviar-->
-                                                    <div class="form-group d-flex justify-content-center">
+                                                    <div class="form-group d-flex justify-content-center mt-4">
                                                         <input type="submit" id="btnRegistre" value="Enviar"class="btn btn-primary btn-block mt-n2">
                                                     </div>
                                                 </form>
+                                                
 
                                                 <!--FORMULARI RESULTATS (display none)-->
 
@@ -250,6 +251,7 @@
 
 
                                         </div>
+
                                     
                                         <!-- Modal Login/Registre END FORMULARI REGISTRE-->
 
