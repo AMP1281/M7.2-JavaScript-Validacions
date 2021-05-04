@@ -102,7 +102,7 @@ function validacioRegistre() {
     var numero= /[0-9]/;
     var length= /[0-9a-zA-Z]{8,}/;
 
-         (!mayuscula.test(inputContrasenyados.value)) ? error.push (" una majúscula"): valid(inputContrasenyados);;
+         (!mayuscula.test(inputContrasenyados.value)) ? error.push (" una majúscula"): valid(inputContrasenyados);
          (!numero.test(inputContrasenyados.value)) ? error.push (" un número"): valid(inputContrasenyados);
          (!length.test(inputContrasenyados.value)) ? error.push (" mínim 8 caràcters"): valid(inputContrasenyados);
 
@@ -217,50 +217,33 @@ function validacioRegistre() {
                     //Usuari
 
                     var errorLogin = new Array();
-                    var contadorLogin= 0; 
 
-                    if (logEmail.value != resultados[2]) {
-                        errorLogin[contadorLogin]= "Email no registrat";
-                        contadorLogin++
-                        }
-                    if (logEmail.value.length < 1) {
-                        errorLogin[contadorLogin]= "Aquest camp es obligatori";
-                        errorLogin.shift();
-                        contadorLogin++
-                        }
-                    if (contadorLogin > 0) {
+                    (logEmail.value != resultados[2]) ? errorLogin.push ("Email no registrat"): valid (logEmail);
+
+                    (logEmail.value.length < 1) ? errorLogin.push (("Aquest camp es obligatori") , errorLogin.shift()): valid (logEmail);
+
+                    if (errorLogin.length > 0) {
                         invalid (logEmail);
                         errorEmail.textContent = errorLogin.toString();
                         }
-                    else{
-                    valid (logEmail);
-                    }
 
                     //Contrasenya
 
                     var errorLoginP = new Array();
-                    var contadorLoginP = 0; 
 
-                    if (logPassword.value != resultados [3]) {
-                        errorLoginP[contadorLoginP]= "Email no registrat";
-                        contadorLoginP++
-                        }
-                    if (logPassword.value.length < 1) {
-                        errorLoginP[contadorLoginP]= "Aquest camp es obligatori";
-                        errorLoginP.shift();
-                        contadorLoginP++
-                        }
-                    if (contadorLoginP > 0) {
+                    (logPassword.value != resultados [3]) ? errorLoginP.push ("Contrasenya no registrada"): valid (logPassword);
+
+                    (logPassword.value.length < 1) ? errorLoginP.push (("Aquest camp es obligatori") , errorLoginP.shift()): valid (logPassword);
+
+                    if (errorLoginP.length > 0) {
                         invalid (logPassword);
                         errorContrasenya.textContent = errorLoginP.toString();
                         }
-                    else{
-                    valid (logPassword);
-                    }
+
 
                     // Si dades no correctes return false. No avança.
 
-                    if (contadorLogin > 0 || contadorLoginP > 0){
+                    if (errorLogin.length > 0 || errorLoginP.length > 0){
                     return false;
                     }
 
