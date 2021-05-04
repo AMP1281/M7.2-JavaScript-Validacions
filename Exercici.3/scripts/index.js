@@ -218,9 +218,9 @@ function validacioRegistre() {
 
                     var errorLogin = new Array();
 
-                    (logEmail.value != resultados[2]) ? errorLogin.push ("Email no registrat"): valid (logEmail);
+                        (logEmail.value != resultados[2]) ? errorLogin.push ("Email no registrat"): valid (logEmail);
 
-                    (logEmail.value.length < 1) ? errorLogin.push (("Aquest camp es obligatori") , errorLogin.shift()): valid (logEmail);
+                        (logEmail.value.length < 1) ? errorLogin.push (("Aquest camp es obligatori") , errorLogin.shift()): valid (logEmail);
 
                     if (errorLogin.length > 0) {
                         invalid (logEmail);
@@ -231,9 +231,9 @@ function validacioRegistre() {
 
                     var errorLoginP = new Array();
 
-                    (logPassword.value != resultados [3]) ? errorLoginP.push ("Contrasenya no registrada"): valid (logPassword);
+                        (logPassword.value != resultados [3]) ? errorLoginP.push ("Contrasenya no registrada"): valid (logPassword);
 
-                    (logPassword.value.length < 1) ? errorLoginP.push (("Aquest camp es obligatori") , errorLoginP.shift()): valid (logPassword);
+                        (logPassword.value.length < 1) ? errorLoginP.push (("Aquest camp es obligatori") , errorLoginP.shift()): valid (logPassword);
 
                     if (errorLoginP.length > 0) {
                         invalid (logPassword);
