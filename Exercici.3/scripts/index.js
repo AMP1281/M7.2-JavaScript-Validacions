@@ -28,6 +28,13 @@ var cercaForm = cerca;
     }
 
 //Validar formulari registre
+const message = {
+    usari: "Es seu nom d'usuari ha de contenir entre 3 i 15 caràcters",
+    provincia: "Es obligatori seleccionar la seva provincia",
+    email: "Introdueix una direcció de correu electrónic vàlida",
+    emailConf: "Aquest camp es obligatori, ha de repetir una contrasenya vàlida.",
+    legal: "Aquest camp es obligatori",
+}
 
 var registreForm = registre;
 
@@ -49,9 +56,11 @@ var logInici= loginForm.elements.btnInici;
 
 function validacioRegistre() {
 
-    function invalid(ele){
+    function invalid(ele, error,msg){
         ele.classList.remove("is-valid");
         ele.classList.add("is-invalid");
+        error.textContent = msg;
+        count ++;
     }
     
     function valid(ele){
@@ -64,9 +73,7 @@ function validacioRegistre() {
     //Usuari
 
         if (inputUsuari.value.length < 3 || inputUsuari.value.length > 15) {
-            invalid (inputUsuari);
-            errorUsuari.textContent = "Es seu nom d'usuari ha de contenir entre 3 i 15 caràcters";
-            count ++;
+            invalid (inputUsuari, errorUsuari, message.usari);
         } 
         else {
             valid(inputUsuari);
@@ -75,9 +82,7 @@ function validacioRegistre() {
     //Provincia
 
         if (inputProvincia.selectedIndex == 0){
-            invalid (inputProvincia);
-            errorProvincia.textContent = "Es obligatori seleccionar la seva provincia";
-            count ++;
+            invalid (inputProvincia, errorProvincia, message.provincia);
         } 
         else {
             valid(inputProvincia);
@@ -86,9 +91,7 @@ function validacioRegistre() {
     //Email
 
         if (!regExpemail.test(inputEmaildos.value)) {
-            invalid (inputEmaildos);
-            errorEmaildos.textContent = "Introdueix una direcció de correu electrónic vàlida";
-            count ++;
+            invalid (inputEmaildos, errorEmaildos, message.email);
         }
         else {
             valid(inputEmaildos);
@@ -117,17 +120,13 @@ function validacioRegistre() {
             valid(inputConfirmcontra);
         } 
         else {
-            invalid (inputConfirmcontra);
-            errorConfirmcontra.textContent = "Aquest camp es obligatori, ha de repetir una contrasenya vàlida.";
-            count ++;
+            invalid (inputConfirmcontra, errorConfirmcontra, message.emailConf);
         }
 
     //Legal
 
         if (!inputLegal.checked) {
-            invalid (inputLegal);
-            errorLegal.textContent = "Aquest camp es obligatori";
-            count ++;
+            invalid (inputLegal, errorLegal, message.legal);
 	    } 
         else {
             valid(inputLegal);
@@ -151,9 +150,7 @@ function validacioRegistre() {
             inputLegal.setAttribute('disabled', 'true');
             inputBtnregistre.setAttribute('disabled', 'true');
 
-            div = document.getElementById('divResultats');
-
-            div.style.display = ''; //Mostra el div on estan els resultats
+            divResultats.style.display = ''; //Mostra el div on estan els resultats
 
             var resultados = new Array(); //Array amb dades registrades
 
@@ -161,13 +158,11 @@ function validacioRegistre() {
                 resultados.push (registreForm.elements[i].value);
             }
 
-                var resultatsForm = document.getElementById('resultats');
-
-                var resUsuari = resultatsForm.elements.mUsuari;
-                var resProvincia = resultatsForm.elements.mProvincia;
-                var resEmaildos = resultatsForm.elements.mEmail;
-                var resContrasenya = resultatsForm.elements.mContrasenya;
-                var resAcceptar = resultatsForm.elements.mAcceptar;
+                var resUsuari = resultats.elements.mUsuari;
+                var resProvincia = resultats.elements.mProvincia;
+                var resEmaildos = resultats.elements.mEmail;
+                var resContrasenya = resultats.elements.mContrasenya;
+                var resAcceptar = resultats.elements.mAcceptar;
 
                     //Usuari
                     resUsuari.value = resultados[0];
@@ -219,7 +214,6 @@ function validacioRegistre() {
                     var errorLogin = new Array();
 
                         (logEmail.value != resultados[2]) ? errorLogin.push ("Email no registrat"): valid (logEmail);
-
                         (logEmail.value.length < 1) ? errorLogin.push (("Aquest camp es obligatori") , errorLogin.shift()): valid (logEmail);
 
                     if (errorLogin.length > 0) {
@@ -232,7 +226,6 @@ function validacioRegistre() {
                     var errorLoginP = new Array();
 
                         (logPassword.value != resultados [3]) ? errorLoginP.push ("Contrasenya no registrada"): valid (logPassword);
-
                         (logPassword.value.length < 1) ? errorLoginP.push (("Aquest camp es obligatori") , errorLoginP.shift()): valid (logPassword);
 
                     if (errorLoginP.length > 0) {
