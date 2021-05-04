@@ -104,7 +104,7 @@ function validacioRegistre() {
 
          (!mayuscula.test(inputContrasenyados.value)) ? error.push (" una majúscula"): valid(inputContrasenyados);;
          (!numero.test(inputContrasenyados.value)) ? error.push (" un número"): valid(inputContrasenyados);
-         (!length.test(inputContrasenyados.value)) ? error.push (" un número"): valid(inputContrasenyados);
+         (!length.test(inputContrasenyados.value)) ? error.push (" mínim 8 caràcters"): valid(inputContrasenyados);
 
          if (error.length > 0) {
             invalid(inputContrasenyados);
