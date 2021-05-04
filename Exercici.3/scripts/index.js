@@ -97,31 +97,23 @@ function validacioRegistre() {
     //Contraseña
 
     var error = new Array();
-    var contador= 0; 
 
-        if (!/[A-Z]/.test(inputContrasenyados.value)) {
-            error[contador]= " una majúscula";
-            contador++
-        }
-        if (!/[0-9]/.test(inputContrasenyados.value)) {
-            error[contador]= " un número";
-            contador++
-        }
-        if (inputContrasenyados.value.length < 8) {
-            error[contador]= " mínim 8 caràcters";
-            contador++
-        }
-        if (contador > 0) {
+    var mayuscula= /[A-Z]/;
+    var numero= /[0-9]/;
+    var length= /[0-9a-zA-Z]{8,}/;
+
+         (!mayuscula.test(inputContrasenyados.value)) ? error.push (" una majúscula"): valid(inputContrasenyados);;
+         (!numero.test(inputContrasenyados.value)) ? error.push (" un número"): valid(inputContrasenyados);
+         (!length.test(inputContrasenyados.value)) ? error.push (" un número"): valid(inputContrasenyados);
+
+         if (error.length > 0) {
             invalid(inputContrasenyados);
             errorContrasenyados.textContent = "Per favor introdueixi:" + error.toString();
-        }
-        else {
-            valid(inputContrasenyados);
         }
 
     //Confirma contrasenya
 
-        if (inputConfirmcontra.value === inputContrasenyados.value && contador == 0 && inputConfirmcontra.value != "") {
+        if (inputConfirmcontra.value === inputContrasenyados.value && inputConfirmcontra.value != "" && error.length == 0) {
             valid(inputConfirmcontra);
         } 
         else {
