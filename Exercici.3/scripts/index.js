@@ -1,4 +1,30 @@
 
+const message = {
+    usuari: "Es seu nom d'usuari ha de contenir entre 3 i 15 caràcters",
+    provincia: "Es obligatori seleccionar la seva provincia",
+    email: "Introdueix una direcció de correu electrónic vàlida",
+    emailConf: "Aquest camp es obligatori, ha de repetir una contrasenya vàlida.",
+    legal: "Aquest camp es obligatori",
+}
+
+var registreForm = registre;
+
+var inputUsuari = registreForm.elements.usuari;
+var inputProvincia = registreForm.elements.provincia;
+var inputEmaildos = registreForm.elements.emaildos;
+var inputContrasenyados = registreForm.elements.contrasenyados;
+var inputConfirmcontra = registreForm.elements.confirmcontra;
+var inputLegal = registreForm.elements.legal;
+var inputBtnregistre = registreForm.elements.btnRegistre;
+
+var regExpemail = /[\w._-]+@[\wñ._-]+(?:\.[\w]+)+/; 
+
+var loginForm = login;
+
+var logEmail = loginForm.elements.emailuno;
+var logPassword = loginForm.elements.contrasenyauno;
+var logInici= loginForm.elements.btnInici;
+
 //Validar formulari cerca
 
 var cercaForm = cerca;
@@ -28,31 +54,6 @@ var cercaForm = cerca;
     }
 
 //Validar formulari registre
-const message = {
-    usuari: "Es seu nom d'usuari ha de contenir entre 3 i 15 caràcters",
-    provincia: "Es obligatori seleccionar la seva provincia",
-    email: "Introdueix una direcció de correu electrónic vàlida",
-    emailConf: "Aquest camp es obligatori, ha de repetir una contrasenya vàlida.",
-    legal: "Aquest camp es obligatori",
-}
-
-var registreForm = registre;
-
-var inputUsuari = registreForm.elements.usuari;
-var inputProvincia = registreForm.elements.provincia;
-var inputEmaildos = registreForm.elements.emaildos;
-var inputContrasenyados = registreForm.elements.contrasenyados;
-var inputConfirmcontra = registreForm.elements.confirmcontra;
-var inputLegal = registreForm.elements.legal;
-var inputBtnregistre = registreForm.elements.btnRegistre;
-
-var regExpemail = /[\w._-]+@[\wñ._-]+(?:\.[\w]+)+/; 
-
-var loginForm = login;
-
-var logEmail = loginForm.elements.emailuno;
-var logPassword = loginForm.elements.contrasenyauno;
-var logInici= loginForm.elements.btnInici;
 
 function validacioRegistre() {
 
@@ -192,7 +193,7 @@ function validacioRegistre() {
                     resAcceptar.addEventListener('click', function (e){
                         e.preventDefault(); 
                         e.stopPropagation();
-                        div.style.display = 'none';
+                        divResultats.style.display = 'none';
                         registreForm.reset();
                         inputUsuari.classList.toggle("is-valid","");
                         inputProvincia.classList.toggle("is-valid","");
@@ -284,13 +285,13 @@ function noRegistrado(e){
         errorContrasenya.textContent = "Usuari no registrat, crea un compte";
     }
 
-    logEmail.addEventListener('change', updateEmail); // Si modifica text treu is-invalid
+    logEmail.addEventListener('change', updateEmail); // Si modifica text e.mail treu is-invalid
 
     function updateEmail() {
         logEmail.classList.remove("is-invalid");
     }
 
-    logPassword.addEventListener('change', updatePassword); // Si modifica text treu is-invalid
+    logPassword.addEventListener('change', updatePassword); // Si modifica text Password treu is-invalid
 
     function updatePassword() {
         logPassword.classList.remove("is-invalid");
