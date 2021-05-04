@@ -29,7 +29,7 @@ var cercaForm = cerca;
 
 //Validar formulari registre
 const message = {
-    usari: "Es seu nom d'usuari ha de contenir entre 3 i 15 caràcters",
+    usuari: "Es seu nom d'usuari ha de contenir entre 3 i 15 caràcters",
     provincia: "Es obligatori seleccionar la seva provincia",
     email: "Introdueix una direcció de correu electrónic vàlida",
     emailConf: "Aquest camp es obligatori, ha de repetir una contrasenya vàlida.",
@@ -73,7 +73,7 @@ function validacioRegistre() {
     //Usuari
 
         if (inputUsuari.value.length < 3 || inputUsuari.value.length > 15) {
-            invalid (inputUsuari, errorUsuari, message.usari);
+            invalid (inputUsuari, errorUsuari, message.usuari);
         } 
         else {
             valid(inputUsuari);
@@ -110,7 +110,8 @@ function validacioRegistre() {
          (!length.test(inputContrasenyados.value)) ? error.push (" mínim 8 caràcters"): valid(inputContrasenyados);
 
          if (error.length > 0) {
-            invalid(inputContrasenyados);
+            inputContrasenyados.classList.remove("is-valid");
+            inputContrasenyados.classList.add("is-invalid");
             errorContrasenyados.textContent = "Per favor introdueixi:" + error.toString();
         }
 
